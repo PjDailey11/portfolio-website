@@ -45,24 +45,31 @@
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    background-color: var(--bg);
 }
 
 body {
     font-family: var(--font);
-    background: transparent;
+    background-color: var(--bg);
     color: var(--text);
     line-height: 1.65;
     font-size: 16px;
 }
 
-/* Slow ambient backdrop (Linear / Vercel-adjacent; stays behind content) */
+/* Slow ambient backdrop — z-index 0 (not -1) so it isn't trapped behind body's paint layer */
 .ambient-bg {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
     overflow: hidden;
     background-color: var(--bg);
+}
+
+/* Stack primary content above ambient layer */
+main {
+    position: relative;
+    z-index: 1;
 }
 
 .ambient-blob {
@@ -1001,6 +1008,8 @@ button {
 
 /* ----- Footer ----- */
 .footer {
+    position: relative;
+    z-index: 1;
     border-top: 1px solid var(--border);
     padding: 2.5rem 0 3rem;
     background: var(--bg-muted);
