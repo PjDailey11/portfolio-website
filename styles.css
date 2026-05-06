@@ -43,6 +43,7 @@
 }
 
 html {
+    color-scheme: dark;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     background-color: var(--bg);
@@ -562,6 +563,7 @@ button {
     letter-spacing: -0.03em;
     line-height: 1.2;
     margin-bottom: 0.65rem;
+    color: var(--text);
 }
 
 .section-title-sub {
@@ -863,9 +865,14 @@ button {
 }
 
 /* ----- Creator work (on-page) ----- */
-.creator-work .creator-gallery-label {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+/* Explicit surface + text so headings/body never pair near-white on white if paint order breaks. */
+.creator-work {
+    background-color: var(--bg-muted);
+    color: var(--text);
+}
+
+.creator-work .section-desc {
+    color: var(--text-muted);
 }
 
 .creator-work .creator-channel-list a {

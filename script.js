@@ -317,9 +317,19 @@ class ContactForm {
 class ScrollReveal {
     constructor() {
         this.elements = document.querySelectorAll(
-            '.section-header.reveal, .project-card.reveal, .skills-grid.reveal, .about-split.reveal, .creator-gallery.reveal, .creator-gallery-label.reveal, .contact-layout.reveal'
+            '.section-header.reveal, .project-card.reveal, .skills-grid.reveal, .about-split.reveal, .contact-layout.reveal'
         );
         this.init();
+    }
+
+    static markInView(elements) {
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        elements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < vh * 0.92 && rect.bottom > vh * 0.06) {
+                el.classList.add('visible');
+            }
+        });
     }
 
     init() {
@@ -338,6 +348,9 @@ class ScrollReveal {
         );
 
         this.elements.forEach((el) => observer.observe(el));
+        ScrollReveal.markInView(this.elements);
+        window.addEventListener('load', () => ScrollReveal.markInView(this.elements));
+        requestAnimationFrame(() => requestAnimationFrame(() => ScrollReveal.markInView(this.elements)));
     }
 }
 
