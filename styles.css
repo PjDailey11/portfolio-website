@@ -49,10 +49,94 @@ html {
 
 body {
     font-family: var(--font);
-    background: var(--bg);
+    background: transparent;
     color: var(--text);
     line-height: 1.65;
     font-size: 16px;
+}
+
+/* Slow ambient backdrop (Linear / Vercel-adjacent; stays behind content) */
+.ambient-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background-color: var(--bg);
+}
+
+.ambient-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+}
+
+.ambient-blob--a {
+    width: min(88vw, 760px);
+    height: min(88vw, 760px);
+    top: -28%;
+    right: -18%;
+    background: radial-gradient(circle at 38% 38%, rgba(59, 130, 246, 0.2), transparent 62%);
+    animation: ambient-float-a 88s ease-in-out infinite alternate;
+}
+
+.ambient-blob--b {
+    width: min(78vw, 640px);
+    height: min(78vw, 640px);
+    bottom: -32%;
+    left: -20%;
+    background: radial-gradient(circle at 52% 52%, rgba(99, 102, 241, 0.12), transparent 58%);
+    animation: ambient-float-b 118s ease-in-out infinite alternate;
+}
+
+.ambient-blob--c {
+    width: min(52vw, 440px);
+    height: min(52vw, 440px);
+    top: 48%;
+    left: 28%;
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.07), transparent 56%);
+    animation: ambient-float-c 150s ease-in-out infinite alternate;
+}
+
+.ambient-mesh {
+    position: absolute;
+    inset: 0;
+    opacity: 0.045;
+    background-image:
+        linear-gradient(rgba(250, 250, 250, 0.45) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(250, 250, 250, 0.45) 1px, transparent 1px);
+    background-size: 72px 72px;
+    animation: ambient-mesh-pan 200s linear infinite;
+}
+
+@keyframes ambient-float-a {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-6vw, 8vh) scale(1.1); }
+}
+
+@keyframes ambient-float-b {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(7vw, -6vh) scale(1.07); }
+}
+
+@keyframes ambient-float-c {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-5vw, -10vh); }
+}
+
+@keyframes ambient-mesh-pan {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-72px, -72px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ambient-blob--a,
+    .ambient-blob--b,
+    .ambient-blob--c,
+    .ambient-mesh {
+        animation: none !important;
+    }
 }
 
 ::selection {
@@ -269,8 +353,77 @@ button {
     border-bottom: 1px solid var(--border);
 }
 
-.hero-inner {
-    max-width: 720px;
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, min(36vw, 320px));
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+}
+
+.hero-copy {
+    max-width: 640px;
+}
+
+.hero-visual {
+    justify-self: end;
+    width: 100%;
+    max-width: 320px;
+}
+
+.hero-photo-shell {
+    position: relative;
+    margin: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.hero-photo-shell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.hero-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 18%;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        justify-self: center;
+        max-width: 280px;
+        order: -1;
+    }
+
+    .hero-copy {
+        max-width: none;
+        text-align: center;
+    }
+
+    .hero-meta {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
 }
 
 .hero-eyebrow {
@@ -677,8 +830,9 @@ button {
 
 .about-photo {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    object-position: center 18%;
 }
 
 .about-aside-note {

@@ -11,7 +11,7 @@
     <meta property="og:description" content="Full-stack engineer building AI-enabled products, SaaS platforms, and production-grade web systems.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://portfolio-website-nu-navy-16.vercel.app">
-    <meta property="og:image" content="https://framerusercontent.com/images/GAoZ5c5vDHQgSXSXdVhn1nve4.jpg?lossless=true">
+    <meta property="og:image" content="https://portfolio-website-nu-navy-16.vercel.app/assets/pj-headshot.png">
 
     <title>PJ Dailey | Full-Stack Software Engineer</title>
 
@@ -24,6 +24,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="ambient-blob ambient-blob--a"></div>
+        <div class="ambient-blob ambient-blob--b"></div>
+        <div class="ambient-blob ambient-blob--c"></div>
+        <div class="ambient-mesh"></div>
+    </div>
+
     <a class="skip-link" href="#main">Skip to content</a>
 
     <nav class="nav" id="nav" aria-label="Primary">
@@ -67,25 +74,32 @@
 
     <main id="main">
         <section class="hero" id="top">
-            <div class="container hero-inner">
-                <p class="hero-eyebrow">Software engineering · Austin, Texas</p>
-                <h1 class="hero-title">Full-stack software engineer specializing in AI and scalable systems</h1>
-                <p class="hero-lede">
-                    I design and ship production web applications end to end: typed front ends, secure APIs, data models,
-                    billing integrations, and observable deployments. Computer Science (AI focus) and Mathematics minor at St. Edward’s University.
-                </p>
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <p class="hero-eyebrow">Software engineering · Austin, Texas</p>
+                    <h1 class="hero-title">Full-stack software engineer specializing in AI and scalable systems</h1>
+                    <p class="hero-lede">
+                        I design and ship production web applications end to end: typed front ends, secure APIs, data models,
+                        billing integrations, and observable deployments. Computer Science (AI focus) and Mathematics minor at St. Edward’s University.
+                    </p>
 
-                <div class="hero-meta">
-                    <span>TypeScript · Next.js · Node.js</span>
-                    <span class="hero-meta-sep" aria-hidden="true">·</span>
-                    <span>Supabase · Stripe · PostgreSQL</span>
+                    <div class="hero-meta">
+                        <span>TypeScript · Next.js · Node.js</span>
+                        <span class="hero-meta-sep" aria-hidden="true">·</span>
+                        <span>Supabase · Stripe · PostgreSQL</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View projects</a>
+                        <a href="resume.pdf" class="btn btn-secondary" download>Download resume</a>
+                        <a href="https://github.com/PjDailey11" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="#contact" class="btn btn-ghost">Contact</a>
+                    </div>
                 </div>
-
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">View projects</a>
-                    <a href="resume.pdf" class="btn btn-secondary" download>Download resume</a>
-                    <a href="https://github.com/PjDailey11" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="#contact" class="btn btn-ghost">Contact</a>
+                <div class="hero-visual">
+                    <figure class="hero-photo-shell">
+                        <img class="hero-photo" src="assets/pj-headshot.png" alt="PJ Dailey" width="640" height="800" fetchpriority="high" decoding="async">
+                    </figure>
                 </div>
             </div>
         </section>
@@ -463,7 +477,7 @@
                     </div>
                     <div class="about-aside">
                         <figure class="about-photo-wrap">
-                            <img src="https://framerusercontent.com/images/GAoZ5c5vDHQgSXSXdVhn1nve4.jpg" alt="PJ Dailey" width="400" height="400" loading="lazy" class="about-photo">
+                            <img src="assets/pj-headshot.png" alt="PJ Dailey" width="400" height="500" loading="lazy" class="about-photo">
                         </figure>
                         <p class="about-aside-note">
                             UGC partnerships and content samples live on the <a href="content.html">creator work</a> page so this homepage stays engineering-centric.
