@@ -850,11 +850,24 @@ button {
     color: var(--accent-hover);
 }
 
-/* ----- Creator teaser ----- */
-.creator-teaser-text {
-    color: var(--text-muted);
-    max-width: 56ch;
+/* Anchor offset under fixed nav */
+#creator-work {
+    scroll-margin-top: 88px;
+}
+
+/* ----- Creator work (on-page) ----- */
+.creator-work .creator-gallery-label {
+    margin-top: 2rem;
     margin-bottom: 1rem;
+}
+
+.creator-work .creator-channel-list a {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.creator-work .creator-channel-list a:hover {
+    color: var(--accent-hover);
 }
 
 /* ----- Contact ----- */
