@@ -26,7 +26,7 @@ app.use(helmet({
             fontSrc: ["'self'", "https://fonts.gstatic.com"],
             scriptSrc: ["'self'"],
             imgSrc: ["'self'", "data:", "https:"],
-            connectSrc: ["'self'"]
+            connectSrc: ["'self'", "https://formsubmit.co"]
         }
     },
     crossOriginEmbedderPolicy: false
