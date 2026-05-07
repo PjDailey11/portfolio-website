@@ -582,6 +582,100 @@ button {
     gap: 3rem;
 }
 
+.recent-github {
+    margin-top: 0.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.recent-github-intro {
+    margin-bottom: 1.5rem;
+    max-width: 640px;
+}
+
+.recent-github-title {
+    font-size: clamp(1.125rem, 2vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.recent-github-lede {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.recent-repo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 720px) {
+    .recent-repo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.recent-repo-card {
+    padding: 1.15rem 1.25rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    transition: border-color var(--transition);
+}
+
+.recent-repo-card:hover {
+    border-color: var(--border-subtle);
+}
+
+.recent-repo-name {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.45rem;
+}
+
+.recent-repo-name a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.recent-repo-name a:hover {
+    color: var(--accent-hover);
+}
+
+.recent-repo-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 0.65rem;
+}
+
+.recent-repo-meta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+}
+
+.recent-github-foot {
+    margin-top: 1.35rem;
+    font-size: 0.875rem;
+}
+
+.recent-github-foot a {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.recent-github-foot a:hover {
+    color: var(--accent-hover);
+}
+
 .project-card {
     padding: clamp(1.5rem, 3vw, 2rem);
     border: 1px solid var(--border);

@@ -317,7 +317,7 @@ class ContactForm {
 class ScrollReveal {
     constructor() {
         this.elements = document.querySelectorAll(
-            '.section-header.reveal, .project-card.reveal, .skills-grid.reveal, .about-split.reveal, .contact-layout.reveal'
+            '.section-header.reveal, .project-card.reveal, .recent-github.reveal, .skills-grid.reveal, .about-split.reveal, .contact-layout.reveal'
         );
         this.init();
     }
