@@ -23,3 +23,9 @@ Thumbs.db
 npm-debug.log*
 
 .vercel
+
+# Cursor (generated state)
+.cursor/hooks/state/
+
+# Local nested repos (tracked separately)
+rfid-security-toolkit/

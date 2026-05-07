@@ -1,0 +1,8 @@
+## Learned User Preferences
+- Prefers explicit, step-by-step operational guidance for deployment and infrastructure setup tasks.
+- Prefers concrete "what to click/do next" instructions over high-level explanations when configuring GitHub, Vercel, Stripe, and Supabase.
+- For recruiter-facing portfolio work, prefers a clear software-engineering headline and conventional professional tone over religious verses, polarizing personal branding, or sales-heavy CTAs; wants several strong technical projects with concrete proof (repository links, live demos, screenshots or similar visuals, metrics when applicable) and messaging that keeps engineering identity primary.
+
+## Learned Workspace Facts
+- The user actively works across local repos including `C:\Users\User\.claude\workspaces\portfolio-website` (recruiter-focused portfolio and related showcases such as `rfid-security-toolkit/`), `E:\Downloads\Only-fans-SaaS-main\Only-fans-SaaS-main`, and `C:\Users\User\.claude\workspaces\only-fans-saas`.
+- CI/CD work in this workspace commonly involves GitHub Actions pipelines and Vercel deployment configuration.
