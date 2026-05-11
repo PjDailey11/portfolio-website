@@ -53,8 +53,8 @@
     <div class="site-grid mt-6">
         <% page.workflows.forEach(function (workflow) { %>
             <article class="surface-card p-6">
-                <h3 class="text-xl font-semibold tracking-tight"><%= workflow %></h3>
-                <p class="body-sm mt-3">Designed to reduce manual repetition, improve throughput, and create cleaner operating systems for day-to-day work.</p>
+                <h3 class="text-xl font-semibold tracking-tight"><%= workflow.title %></h3>
+                <p class="body-sm mt-3"><%= workflow.description %></p>
             </article>
         <% }) %>
     </div>

@@ -224,11 +224,26 @@ const pageContent = {
         ],
         industries: ['Education', 'Small businesses', 'Creators', 'Startups', 'Students'],
         workflows: [
-            'Automated study set generation',
-            'Social media content pipelines',
-            'Lead-gen automation',
-            'AI-powered tutoring systems',
-            'Research automation',
+            {
+                title: 'Automated study set generation',
+                description: 'Turn notes, lecture recordings, and textbook sections into organized practice sets, flashcards, and review guides so students can study from cleaner material faster.',
+            },
+            {
+                title: 'Social media content pipelines',
+                description: 'Build repeatable systems for idea capture, script drafting, clip selection, and repurposing so creators spend less time juggling tools and more time publishing.',
+            },
+            {
+                title: 'Lead-gen automation',
+                description: 'Connect forms, CRM intake, qualification rules, and follow-up messaging so new leads are sorted quickly and handoffs stop depending on manual copy-paste.',
+            },
+            {
+                title: 'AI-powered tutoring systems',
+                description: 'Design support flows for lesson planning, homework breakdowns, practice generation, and student follow-up that keep the teaching process personal while removing admin drag.',
+            },
+            {
+                title: 'Research automation',
+                description: 'Set up workflows that gather sources, summarize findings, extract action items, and package outputs into decision-ready briefs for faster analysis.',
+            },
         ],
         pricing: [
             { title: 'Hourly consulting', price: '$100/hr', description: 'For strategy, audits, and live workflow design sessions.' },
