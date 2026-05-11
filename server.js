@@ -160,8 +160,9 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`
 ========================================
   Portfolio Server Running
 ========================================
@@ -169,6 +170,7 @@ app.listen(PORT, () => {
   Env:      ${process.env.NODE_ENV || 'development'}
 ========================================
     `);
-});
+    });
+}
 
 module.exports = app;
