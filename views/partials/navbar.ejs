@@ -1,0 +1,68 @@
+<header class="sticky top-0 z-40 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--bg)_84%,transparent)] backdrop-blur-xl">
+    <div class="container-shell flex items-center justify-between gap-4 py-4">
+        <a href="/" class="flex items-center gap-3">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,var(--primary),var(--accent))] text-base font-bold text-white">PJ</span>
+            <span>
+                <span class="block text-sm font-semibold tracking-tight text-[var(--text)]"><%= site.brandName %></span>
+                <span class="block text-xs text-[var(--text-soft)]">Tutor + AI Consultant</span>
+            </span>
+        </a>
+
+        <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+            <% site.navLinks.forEach(function (item) { %>
+                <% const isActive = currentPath === item.href; %>
+                <a href="<%= item.href %>" class="rounded-full px-4 py-2 text-sm font-medium <%= isActive ? 'nav-link-active bg-[color-mix(in_srgb,var(--surface)_88%,transparent)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]' %>">
+                    <%= item.label %>
+                </a>
+            <% }) %>
+        </nav>
+
+        <div class="hidden items-center gap-3 lg:flex">
+            <a href="/contact" class="btn-secondary">Book a Call</a>
+            <button type="button" class="social-icon" data-theme-toggle aria-label="Toggle color theme">
+                <svg viewBox="0 0 24 24" class="icon-stroke theme-icon theme-icon-light" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2.5"></path>
+                    <path d="M12 19.5V22"></path>
+                    <path d="M4.9 4.9 6.7 6.7"></path>
+                    <path d="m17.3 17.3 1.8 1.8"></path>
+                    <path d="M2 12h2.5"></path>
+                    <path d="M19.5 12H22"></path>
+                    <path d="m4.9 19.1 1.8-1.8"></path>
+                    <path d="m17.3 6.7 1.8-1.8"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex items-center gap-2 lg:hidden">
+            <button type="button" class="social-icon" data-theme-toggle aria-label="Toggle color theme">
+                <svg viewBox="0 0 24 24" class="icon-stroke" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2.5"></path>
+                    <path d="M12 19.5V22"></path>
+                    <path d="M2 12h2.5"></path>
+                    <path d="M19.5 12H22"></path>
+                </svg>
+            </button>
+            <button type="button" class="social-icon" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" class="icon-stroke" aria-hidden="true">
+                    <path d="M4 7h16"></path>
+                    <path d="M4 12h16"></path>
+                    <path d="M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-[var(--border)] lg:hidden">
+        <div class="container-shell flex flex-col gap-2 py-4">
+            <% site.navLinks.forEach(function (item) { %>
+                <% const isActive = currentPath === item.href; %>
+                <a href="<%= item.href %>" class="rounded-2xl px-4 py-3 text-sm font-medium <%= isActive ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>">
+                    <%= item.label %>
+                </a>
+            <% }) %>
+            <a href="/contact" class="btn-primary mt-2 w-full">Book a Call</a>
+        </div>
+    </div>
+</header>

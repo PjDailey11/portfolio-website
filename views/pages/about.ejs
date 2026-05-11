@@ -1,0 +1,67 @@
+<%- include('../partials/page-shell-start', { site: site, page: page, currentPath: currentPath, extraScripts: extraScripts }) %>
+
+<%- include('../partials/page-hero', {
+    hero: {
+        kicker: 'About Me',
+        title: 'A teaching-first operator who also builds technical systems.',
+        description: page.bio,
+        actions: [
+            { label: 'Explore Tutoring', href: '/tutoring' },
+            { label: 'Explore AI Consulting', href: '/ai-consulting' },
+        ],
+        visual: 'portrait',
+    },
+}) %>
+
+<section class="container-shell mt-16 grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+    <div class="surface-card p-6 sm:p-8">
+        <%- include('../partials/section-header', {
+            kicker: 'Accomplishments',
+            title: 'What I have been building and teaching',
+            body: 'The portfolio spans academic coaching, full-stack implementation, AI systems thinking, and content creation.',
+            centered: false,
+        }) %>
+        <ul class="list-check mt-6 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+            <% page.accomplishments.forEach(function (item) { %>
+                <li><%= item %></li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <div class="space-y-6">
+        <div class="surface-card p-6">
+            <p class="eyebrow">Accolades</p>
+            <ul class="mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                <% page.accolades.forEach(function (item) { %>
+                    <li><%= item %></li>
+                <% }) %>
+            </ul>
+        </div>
+
+        <div class="surface-card p-6">
+            <p class="eyebrow">Education</p>
+            <ul class="mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                <% page.education.forEach(function (item) { %>
+                    <li><%= item %></li>
+                <% }) %>
+            </ul>
+        </div>
+
+        <div class="surface-card p-6">
+            <p class="eyebrow">Optional Background</p>
+            <p class="body-sm mt-4"><%= page.athletics %></p>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/cta-banner', {
+    kicker: 'Next step',
+    title: 'Want to work with me as a tutor, consultant, or creator partner?',
+    body: 'The tutoring, AI consulting, and contact pages break down exactly how I work.',
+    actions: [
+        { label: 'See Tutoring', href: '/tutoring' },
+        { label: 'Book a Call', href: '/contact' },
+    ],
+}) %>
+
+<%- include('../partials/page-shell-end', { site: site, year: year, extraScripts: extraScripts }) %>

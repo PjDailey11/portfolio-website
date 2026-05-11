@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= meta.title %></title>
+    <meta name="description" content="<%= meta.description %>">
+    <meta name="author" content="<%= site.brandName %>">
+    <meta name="keywords" content="PJ Dailey, tutoring, AI consulting, full-stack developer, content creator, Pearland Texas">
+
+    <meta property="og:title" content="<%= meta.title %>">
+    <meta property="og:description" content="<%= meta.description %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= meta.canonical %>">
+    <meta property="og:image" content="<%= meta.ogImage %>">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= meta.title %>">
+    <meta name="twitter:description" content="<%= meta.description %>">
+    <meta name="twitter:image" content="<%= meta.ogImage %>">
+
+    <link rel="canonical" href="<%= meta.canonical %>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/app.css">
+
+    <script nonce="<%= nonce %>">
+        (function () {
+            try {
+                var saved = localStorage.getItem('pj-theme');
+                var fallback = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                var theme = saved || fallback;
+                document.documentElement.classList.remove('light', 'dark');
+                document.documentElement.classList.add(theme);
+            } catch (error) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <% (meta.structuredData || []).forEach(function (entry) { %>
+        <script type="application/ld+json" nonce="<%= nonce %>"><%- JSON.stringify(entry) %></script>
+    <% }) %>
+</head>

@@ -1,0 +1,8 @@
+    </main>
+    <%- include('footer', { site: site, year: year }) %>
+    <script src="/js/site.js" defer></script>
+    <% (extraScripts || []).forEach(function (scriptPath) { %>
+        <script src="<%= scriptPath %>" defer></script>
+    <% }) %>
+</body>
+</html>

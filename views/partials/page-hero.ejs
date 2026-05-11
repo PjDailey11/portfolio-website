@@ -1,0 +1,36 @@
+<section class="container-shell pt-10 sm:pt-14">
+    <div class="surface-card grid gap-8 overflow-hidden px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.3fr,0.7fr] lg:px-10">
+        <div>
+            <% if (hero.kicker) { %>
+                <p class="eyebrow"><%= hero.kicker %></p>
+            <% } %>
+            <h1 class="headline-xl mt-4 max-w-3xl"><%= hero.title %></h1>
+            <p class="body-lg mt-5 max-w-2xl"><%= hero.description %></p>
+
+            <% if (hero.actions && hero.actions.length) { %>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <% hero.actions.forEach(function (action, index) { %>
+                        <a href="<%= action.href %>" class="<%= index === 0 ? 'btn-primary' : 'btn-secondary' %>"><%= action.label %></a>
+                    <% }) %>
+                </div>
+            <% } %>
+        </div>
+
+        <% if (hero.visual === 'portrait') { %>
+            <div class="flex items-center justify-center lg:justify-end">
+                <div class="surface-card-strong w-full max-w-sm overflow-hidden p-3">
+                    <img src="/assets/pj-headshot.png" alt="PJ Dailey headshot" class="aspect-[4/5] w-full rounded-[1.25rem] object-cover" fetchpriority="high">
+                </div>
+            </div>
+        <% } else if (hero.stats && hero.stats.length) { %>
+            <div class="grid gap-4 self-end">
+                <% hero.stats.forEach(function (stat) { %>
+                    <div class="surface-card-strong px-5 py-5">
+                        <p class="text-sm font-medium text-[var(--text-soft)]"><%= stat.label %></p>
+                        <p class="mt-2 text-lg font-semibold text-[var(--text)]"><%= stat.value %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+</section>

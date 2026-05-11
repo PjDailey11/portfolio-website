@@ -1,0 +1,23 @@
+<form class="space-y-5" data-contact-form novalidate>
+    <div>
+        <label for="name" class="field-label">Name</label>
+        <input id="name" name="name" type="text" class="field-input" placeholder="Your name" required>
+    </div>
+
+    <div>
+        <label for="email" class="field-label">Email</label>
+        <input id="email" name="email" type="email" class="field-input" placeholder="you@example.com" required>
+    </div>
+
+    <div>
+        <label for="message" class="field-label">Message</label>
+        <textarea id="message" name="message" rows="6" class="field-input min-h-40 resize-y" placeholder="Tell me what you need help with." required></textarea>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3">
+        <button type="submit" class="btn-primary">Book a Call</button>
+        <p class="text-sm text-[var(--text-soft)]">Response target: within 1-2 business days.</p>
+    </div>
+
+    <p class="hidden rounded-2xl border border-[var(--border)] px-4 py-3 text-sm" data-form-status></p>
+</form>

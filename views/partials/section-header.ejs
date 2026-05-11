@@ -1,0 +1,9 @@
+<div class="<%= centered ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl' %>">
+    <% if (kicker) { %>
+        <p class="eyebrow"><%= kicker %></p>
+    <% } %>
+    <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl"><%= title %></h2>
+    <% if (body) { %>
+        <p class="body-lg mt-4"><%= body %></p>
+    <% } %>
+</div>

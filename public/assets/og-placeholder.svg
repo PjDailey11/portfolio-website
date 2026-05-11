@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">PJ Dailey portfolio placeholder</title>
+  <desc id="desc">Open Graph placeholder image for the PJ Dailey portfolio website.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050816" />
+      <stop offset="100%" stop-color="#172554" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7dd3fc" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1030" cy="110" r="180" fill="#7dd3fc" fill-opacity="0.18" />
+  <circle cx="240" cy="560" r="220" fill="#c084fc" fill-opacity="0.16" />
+
+  <g transform="translate(90 120)">
+    <rect x="0" y="0" width="116" height="116" rx="30" fill="url(#accent)" />
+    <text x="58" y="73" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="700" fill="#ffffff">PJ</text>
+
+    <text x="0" y="202" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="700" fill="#e5eefb">
+      PJ Dailey
+    </text>
+    <text x="0" y="276" font-family="Inter, Arial, sans-serif" font-size="34" fill="#b4c2db">
+      Tutor, AI Consultant, Full-Stack Developer,
+    </text>
+    <text x="0" y="324" font-family="Inter, Arial, sans-serif" font-size="34" fill="#b4c2db">
+      and Content Creator
+    </text>
+
+    <text x="0" y="420" font-family="Inter, Arial, sans-serif" font-size="24" fill="#7dd3fc">
+      tutoring | ai consulting | projects | social media
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<article class="surface-card p-6 sm:p-7">
+    <div class="flex flex-wrap items-start justify-between gap-4">
+        <div class="max-w-2xl">
+            <p class="eyebrow"><%= project.type %></p>
+            <h3 class="mt-3 text-2xl font-semibold tracking-tight"><%= project.title %></h3>
+            <p class="body-sm mt-4"><%= project.summary %></p>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+            <a href="<%= project.repoUrl %>" class="btn-secondary" target="_blank" rel="noopener noreferrer">View Repo</a>
+            <% if (project.liveUrl) { %>
+                <a href="<%= project.liveUrl %>" class="btn-ghost" target="_blank" rel="noopener noreferrer">Live / Docs</a>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+        <% project.stack.forEach(function (item) { %>
+            <span class="chip"><%= item %></span>
+        <% }) %>
+    </div>
+
+    <ul class="list-check mt-6 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+        <% project.highlights.forEach(function (item) { %>
+            <li><%= item %></li>
+        <% }) %>
+    </ul>
+</article>

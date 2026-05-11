@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    color-scheme: light;
+    --bg: #f4f7fb;
+    --bg-accent: #eef3ff;
+    --surface: rgba(255, 255, 255, 0.86);
+    --surface-strong: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --text-soft: #64748b;
+    --primary: #1d4ed8;
+    --primary-strong: #1e40af;
+    --accent: #7c3aed;
+    --border: rgba(15, 23, 42, 0.1);
+    --shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --bg: #050816;
+        --bg-accent: #101933;
+        --surface: rgba(10, 16, 35, 0.78);
+        --surface-strong: #0f172a;
+        --text: #e5eefb;
+        --text-muted: #b4c2db;
+        --text-soft: #90a1c4;
+        --primary: #7dd3fc;
+        --primary-strong: #38bdf8;
+        --accent: #c084fc;
+        --border: rgba(148, 163, 184, 0.18);
+        --shadow: 0 24px 60px rgba(2, 6, 23, 0.48);
+    }
+}
+
+.light {
+    color-scheme: light;
+    --bg: #f4f7fb;
+    --bg-accent: #eef3ff;
+    --surface: rgba(255, 255, 255, 0.86);
+    --surface-strong: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --text-soft: #64748b;
+    --primary: #1d4ed8;
+    --primary-strong: #1e40af;
+    --accent: #7c3aed;
+    --border: rgba(15, 23, 42, 0.1);
+    --shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+    color-scheme: dark;
+    --bg: #050816;
+    --bg-accent: #101933;
+    --surface: rgba(10, 16, 35, 0.78);
+    --surface-strong: #0f172a;
+    --text: #e5eefb;
+    --text-muted: #b4c2db;
+    --text-soft: #90a1c4;
+    --primary: #7dd3fc;
+    --primary-strong: #38bdf8;
+    --accent: #c084fc;
+    --border: rgba(148, 163, 184, 0.18);
+    --shadow: 0 24px 60px rgba(2, 6, 23, 0.48);
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply min-h-screen text-[var(--text)] antialiased transition-colors duration-300;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        background: var(--bg);
+    }
+
+    ::selection {
+        background: color-mix(in srgb, var(--primary) 22%, transparent);
+    }
+
+    a {
+        @apply transition-colors duration-200;
+    }
+}
+
+@layer components {
+    .container-shell {
+        @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .surface-card {
+        @apply rounded-[1.75rem] border backdrop-blur;
+        border-color: var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+    }
+
+    .surface-card-strong {
+        @apply rounded-[1.75rem] border;
+        border-color: var(--border);
+        background: var(--surface-strong);
+        box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+        @apply text-xs font-semibold uppercase tracking-[0.22em];
+        color: var(--accent);
+    }
+
+    .headline-xl {
+        @apply text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl;
+    }
+
+    .headline-lg {
+        @apply text-3xl font-semibold tracking-tight sm:text-4xl;
+    }
+
+    .body-lg {
+        @apply text-base leading-8 sm:text-lg;
+        color: var(--text-muted);
+    }
+
+    .body-sm {
+        @apply text-sm leading-7;
+        color: var(--text-muted);
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 25px color-mix(in srgb, var(--primary) 28%, transparent);
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold;
+        border-color: var(--border);
+        background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
+        color: var(--text);
+    }
+
+    .btn-secondary:hover {
+        border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+        color: var(--primary);
+    }
+
+    .btn-ghost {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold;
+        color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+        color: var(--text);
+        background: color-mix(in srgb, var(--surface) 80%, transparent);
+    }
+
+    .chip {
+        @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium;
+        border-color: var(--border);
+        background: color-mix(in srgb, var(--surface) 94%, transparent);
+        color: var(--text-muted);
+    }
+
+    .field-label {
+        @apply mb-2 block text-sm font-medium;
+        color: var(--text);
+    }
+
+    .field-input {
+        @apply w-full rounded-2xl border px-4 py-3 text-sm outline-none transition;
+        border-color: var(--border);
+        background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
+        color: var(--text);
+    }
+
+    .field-input:focus {
+        border-color: color-mix(in srgb, var(--primary) 55%, white);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent);
+    }
+
+    .nav-link-active {
+        color: var(--primary);
+    }
+
+    .social-icon {
+        @apply inline-flex h-10 w-10 items-center justify-center rounded-full border;
+        border-color: var(--border);
+        background: color-mix(in srgb, var(--surface) 92%, transparent);
+        color: var(--text);
+    }
+
+    .social-icon:hover {
+        color: var(--primary);
+        border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+    }
+
+    .icon-stroke {
+        @apply h-5 w-5;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .site-grid {
+        @apply grid gap-6 md:grid-cols-2 xl:grid-cols-3;
+    }
+
+    .list-check li {
+        @apply relative pl-7;
+    }
+
+    .list-check li::before {
+        content: "";
+        @apply absolute left-0 top-2 h-3.5 w-3.5 rounded-full;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 16%, transparent);
+    }
+}

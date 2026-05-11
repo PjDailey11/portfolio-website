@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "public/assets/",
+    "views/",
+    "public/robots.txt",
+    "public/sitemap.xml"
+  ],
+  "rules": {
+    "no-console": "off"
+  }
+}

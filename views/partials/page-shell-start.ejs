@@ -1,0 +1,11 @@
+<%- include('head', { meta: typeof meta !== 'undefined' ? meta : page, site: site, nonce: nonce }) %>
+<body class="min-h-screen">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[var(--surface-strong)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--text)]">Skip to content</a>
+
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,color-mix(in_srgb,var(--accent)_24%,transparent),transparent_36%),radial-gradient(circle_at_bottom_right,color-mix(in_srgb,var(--primary)_24%,transparent),transparent_42%),linear-gradient(180deg,var(--bg-accent),var(--bg))]"></div>
+        <div class="absolute left-1/2 top-0 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-[color-mix(in_srgb,var(--primary)_12%,transparent)] blur-3xl"></div>
+    </div>
+
+    <%- include('navbar', { site: site, currentPath: currentPath }) %>
+    <main id="main">

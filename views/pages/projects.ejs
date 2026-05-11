@@ -1,0 +1,45 @@
+<%- include('../partials/page-shell-start', { site: site, page: page, currentPath: currentPath, extraScripts: extraScripts }) %>
+
+<%- include('../partials/page-hero', {
+    hero: {
+        kicker: 'Projects',
+        title: 'Current public projects on GitHub',
+        description: 'A focused portfolio of public work across educational security tooling, privacy-conscious vision systems, PyTorch experimentation, and protocol engineering.',
+        actions: [
+            { label: 'GitHub Profile', href: 'https://github.com/PjDailey11?tab=repositories' },
+            { label: 'Contact PJ', href: '/contact' },
+        ],
+        stats: [
+            { label: 'Primary stack', value: 'Python, APIs, research tooling' },
+            { label: 'Themes', value: 'Security, AI, computer vision, systems' },
+            { label: 'Source', value: 'Public repositories on GitHub' },
+        ],
+    },
+}) %>
+
+<section class="container-shell mt-16">
+    <%- include('../partials/section-header', {
+        kicker: 'Selected Work',
+        title: 'Projects page',
+        body: 'This page focuses on the recent public GitHub work you selected for the rebuild.',
+        centered: false,
+    }) %>
+
+    <div class="mt-6 grid gap-6 xl:grid-cols-2">
+        <% projects.forEach(function (project) { %>
+            <%- include('../partials/project-card', { project: project }) %>
+        <% }) %>
+    </div>
+</section>
+
+<%- include('../partials/cta-banner', {
+    kicker: 'More repositories',
+    title: 'Want the full repository list?',
+    body: 'The selected cards above are the most portfolio-relevant public projects, but the full GitHub profile includes more experiments and supporting repos.',
+    actions: [
+        { label: 'Browse GitHub', href: 'https://github.com/PjDailey11?tab=repositories' },
+        { label: 'Book a Call', href: '/contact' },
+    ],
+}) %>
+
+<%- include('../partials/page-shell-end', { site: site, year: year, extraScripts: extraScripts }) %>

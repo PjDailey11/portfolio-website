@@ -1,0 +1,91 @@
+<%- include('../partials/page-shell-start', { site: site, page: page, currentPath: currentPath, extraScripts: extraScripts }) %>
+
+<%- include('../partials/page-hero', {
+    hero: {
+        kicker: 'AI Consulting',
+        title: 'Practical AI systems for education, creators, and small business operations.',
+        description: 'I design workflows that cut repetitive work, improve output quality, and make AI feel usable instead of overwhelming.',
+        actions: [
+            { label: 'Book a Consultation', href: '/contact' },
+            { label: 'See Example Projects', href: '/projects' },
+        ],
+        stats: [
+            { label: 'Best fit', value: 'Education, small business, creators, startups' },
+            { label: 'Focus', value: 'Workflow design + automation' },
+            { label: 'Delivery', value: 'Consulting, buildouts, full system setups' },
+        ],
+    },
+}) %>
+
+<section class="container-shell mt-16 grid gap-6 xl:grid-cols-[1.1fr,0.9fr]">
+    <div class="surface-card p-6 sm:p-8">
+        <%- include('../partials/section-header', {
+            kicker: 'Services Offered',
+            title: 'What I can design and implement',
+            body: 'The emphasis is on workflows that teams can actually maintain and use once the initial build is done.',
+            centered: false,
+        }) %>
+        <div class="mt-6 flex flex-wrap gap-3">
+            <% page.services.forEach(function (service) { %>
+                <span class="chip"><%= service %></span>
+            <% }) %>
+        </div>
+    </div>
+
+    <div class="surface-card p-6 sm:p-8">
+        <p class="eyebrow">Industries Served</p>
+        <ul class="mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+            <% page.industries.forEach(function (industry) { %>
+                <li><%= industry %></li>
+            <% }) %>
+        </ul>
+    </div>
+</section>
+
+<section class="container-shell mt-16">
+    <%- include('../partials/section-header', {
+        kicker: 'Example Workflows',
+        title: 'Workflow ideas I can help scope or build',
+        body: 'These examples show the kind of repeatable, leverage-heavy systems I like to implement.',
+        centered: false,
+    }) %>
+
+    <div class="site-grid mt-6">
+        <% page.workflows.forEach(function (workflow) { %>
+            <article class="surface-card p-6">
+                <h3 class="text-xl font-semibold tracking-tight"><%= workflow %></h3>
+                <p class="body-sm mt-3">Designed to reduce manual repetition, improve throughput, and create cleaner operating systems for day-to-day work.</p>
+            </article>
+        <% }) %>
+    </div>
+</section>
+
+<section class="container-shell mt-16">
+    <%- include('../partials/section-header', {
+        kicker: 'Pricing',
+        title: 'Consulting tiers',
+        body: 'Simple pricing to make it easier to start with a scoped engagement.',
+        centered: false,
+    }) %>
+
+    <div class="site-grid mt-6">
+        <% page.pricing.forEach(function (tier) { %>
+            <article class="surface-card p-6">
+                <p class="eyebrow"><%= tier.title %></p>
+                <h3 class="mt-4 text-3xl font-semibold tracking-tight"><%= tier.price %></h3>
+                <p class="body-sm mt-4"><%= tier.description %></p>
+            </article>
+        <% }) %>
+    </div>
+</section>
+
+<%- include('../partials/cta-banner', {
+    kicker: 'Consulting CTA',
+    title: 'Book a Consultation',
+    body: 'If you already have a workflow in mind, use the contact page and describe the current process, pain points, and target outcome.',
+    actions: [
+        { label: 'Book a Consultation', href: '/contact' },
+    ],
+}) %>
+
+<%- include('../partials/page-shell-end', { site: site, year: year, extraScripts: extraScripts }) %>
