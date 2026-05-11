@@ -29,7 +29,7 @@
         (function () {
             try {
                 var saved = localStorage.getItem('pj-theme');
-                var fallback = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                var fallback = 'dark';
                 var theme = saved || fallback;
                 document.documentElement.classList.remove('light', 'dark');
                 document.documentElement.classList.add(theme);
