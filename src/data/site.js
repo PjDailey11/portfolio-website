@@ -127,8 +127,8 @@ const pageContent = {
         title: 'PJ Dailey | Tutor, AI Consultant, Full-Stack Developer',
         description: 'PJ Dailey helps students master math and computer science while helping businesses design AI workflows that save time and increase output.',
         hero: {
-            kicker: 'Tutor, consultant, builder',
-            title: 'PJ Dailey - Tutor, AI Consultant, Full-Stack Developer, and Content Creator.',
+            kicker: 'TUTOR · AI CONSULTANT · BUILDER',
+            title: 'PJ Dailey — Math & CS Tutor and AI Consultant.',
             description: 'I help students master hard subjects, help businesses implement practical AI systems, and build web products that turn ideas into repeatable workflows.',
             primaryCta: { label: 'Book a Call', href: '/contact' },
             secondaryCta: { label: 'Explore Services', href: '/tutoring' },
@@ -262,11 +262,22 @@ const pageContent = {
         description: 'Social media portfolio for AI education, productivity workflows, coding content, and tech tutorials.',
         platforms: ['TikTok', 'Instagram', 'YouTube'],
         contentTypes: [
-            'AI education',
-            'Tech tutorials',
-            'Productivity workflows',
-            'Coding content',
-            'Study systems',
+            {
+                title: 'AI education',
+                description: 'Breakdowns of AI tools, prompting strategies, and automation systems explained for people who want to use them practically — not just understand them theoretically.',
+            },
+            {
+                title: 'Tech tutorials',
+                description: 'Step-by-step walkthroughs of developer tools, VS Code setups, terminal basics, and productivity software aimed at students and early-career builders.',
+            },
+            {
+                title: 'Productivity workflows',
+                description: 'Systems for managing tasks, reducing context-switching, and building a structure for deep work using tools like Notion, calendar blocking, and AI assistants.',
+            },
+            {
+                title: 'Coding content',
+                description: 'Beginner-friendly programming explanations covering Python, JavaScript, data structures, and problem-solving patterns — built from first principles.',
+            },
         ],
     },
     contact: {

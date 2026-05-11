@@ -21,21 +21,31 @@
             body: 'The portfolio spans academic coaching, full-stack implementation, AI systems thinking, and content creation.',
             centered: false,
         }) %>
-        <ul class="list-check mt-6 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
-            <% page.accomplishments.forEach(function (item) { %>
-                <li><%= item %></li>
-            <% }) %>
-        </ul>
+        <div class="mt-6 space-y-8">
+            <div>
+                <h3 class="text-lg font-semibold tracking-tight">TUTORING &amp; TEACHING:</h3>
+                <ul class="list-check mt-4 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                    <li>Runs an active tutoring business serving grades 9-12 and college students.</li>
+                    <li>Tutors: SAT/ACT Math, Algebra I &amp; II through Calculus II, Linear Algebra, Computer Science (Python, JS, C), Data Structures &amp; Algorithms, LeetCode prep, and AI workflow instruction.</li>
+                    <li>Known for step-by-step explanations that build lasting conceptual understanding.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold tracking-tight">BUILDING &amp; DEVELOPMENT:</h3>
+                <ul class="list-check mt-4 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                    <li>Built multiple full-stack web applications using Express, EJS, SQLite, and TailwindCSS.</li>
+                    <li>Experienced with AJAX, DOM manipulation, REST APIs, and Vercel deployment.</li>
+                    <li>Strong foundations in linear algebra, logic proofs, number theory, and algorithm design.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div class="space-y-6">
         <div class="surface-card p-6">
             <p class="eyebrow">Accolades</p>
-            <ul class="mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
-                <% page.accolades.forEach(function (item) { %>
-                    <li><%= item %></li>
-                <% }) %>
-            </ul>
+            <p class="body-sm mt-5">References and student outcome examples are available on request.</p>
         </div>
 
         <div class="surface-card p-6">
@@ -48,8 +58,8 @@
         </div>
 
         <div class="surface-card p-6">
-            <h3 class="text-lg font-semibold tracking-tight">Athletics</h3>
-            <p class="body-sm mt-4"><%= page.athletics %></p>
+            <p class="eyebrow">Athletics</p>
+            <p class="body-sm mt-4">Former Division II college baseball athlete at St. Edward's University.</p>
         </div>
     </div>
 </section>

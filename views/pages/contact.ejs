@@ -20,25 +20,7 @@
 <section class="container-shell mt-16 grid gap-6 lg:grid-cols-[0.9fr,1.1fr]" id="contact-form">
     <div class="space-y-6">
         <div class="surface-card p-6 sm:p-8">
-            <p class="eyebrow">Contact Info</p>
-            <dl class="mt-5 space-y-5 text-sm leading-7 text-[var(--text-muted)]">
-                <div>
-                    <dt class="font-semibold text-[var(--text)]">Phone</dt>
-                    <dd class="mt-1"><a href="<%= site.contact.phoneHref %>" class="text-[var(--primary)] hover:text-[var(--primary-strong)]"><%= site.contact.phoneLabel %></a></dd>
-                </div>
-                <div>
-                    <dt class="font-semibold text-[var(--text)]">Email</dt>
-                    <dd class="mt-1"><a href="<%= site.contact.emailHref %>" class="text-[var(--primary)] hover:text-[var(--primary-strong)]"><%= site.contact.emailLabel %></a></dd>
-                </div>
-                <div>
-                    <dt class="font-semibold text-[var(--text)]">Location</dt>
-                    <dd class="mt-1"><%= site.contact.location %></dd>
-                </div>
-            </dl>
-        </div>
-
-        <div class="surface-card p-6 sm:p-8">
-            <p class="eyebrow">Social Icons</p>
+            <p class="eyebrow">Connect</p>
             <div class="mt-5">
                 <%- include('../partials/social-links', { links: site.socialLinks.filter(function (item) { return ['TikTok', 'Instagram', 'YouTube', 'LinkedIn'].includes(item.label); }) }) %>
             </div>

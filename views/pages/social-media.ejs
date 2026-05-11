@@ -30,8 +30,8 @@
         <div class="mt-5 grid gap-4 sm:grid-cols-2">
             <% page.contentTypes.forEach(function (contentType) { %>
                 <div class="rounded-3xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_92%,transparent)] px-5 py-5">
-                    <h3 class="text-lg font-semibold tracking-tight"><%= contentType %></h3>
-                    <p class="body-sm mt-2">Created to teach practical workflows, improve understanding, and make technical ideas easier to apply.</p>
+                    <h3 class="text-lg font-semibold tracking-tight"><%= contentType.title %></h3>
+                    <p class="body-sm mt-2"><%= contentType.description %></p>
                 </div>
             <% }) %>
         </div>
