@@ -10,6 +10,17 @@
     </div>
 
     <div>
+        <label for="inquiry_type" class="field-label">What do you need help with?</label>
+        <select id="inquiry_type" name="inquiry_type" class="field-input" required>
+            <option value="" disabled selected>Select one...</option>
+            <option value="tutoring">Tutoring</option>
+            <option value="ai-consulting">AI Consulting</option>
+            <option value="creator">Content / Creator Partnership</option>
+            <option value="other">Something else</option>
+        </select>
+    </div>
+
+    <div>
         <label for="message" class="field-label">Message</label>
         <textarea id="message" name="message" rows="6" class="field-input min-h-40 resize-y" placeholder="Tell me what you need help with." required></textarea>
     </div>

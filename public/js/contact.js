@@ -23,6 +23,7 @@
         const payload = {
             name: form.name.value.trim(),
             email: form.email.value.trim(),
+            inquiry_type: form.inquiry_type.value,
             message: form.message.value.trim(),
         };
 

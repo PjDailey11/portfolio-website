@@ -85,6 +85,10 @@ const contactValidation = [
         .isEmail().withMessage('Please provide a valid email address')
         .normalizeEmail()
         .isLength({ max: 254 }).withMessage('Email is too long'),
+    body('inquiry_type')
+        .trim()
+        .notEmpty().withMessage('Inquiry type is required')
+        .isIn(['tutoring', 'ai-consulting', 'creator', 'other']).withMessage('Please select a valid inquiry type'),
     body('message')
         .trim()
         .notEmpty().withMessage('Message is required')
@@ -108,12 +112,13 @@ app.post('/api/contact', contactLimiter, contactValidation, async (req, res) => 
         });
     }
 
-    const { name, email, message } = req.body;
+    const { name, email, inquiry_type, message } = req.body;
 
     try {
         console.log('Contact form submission:', {
             name,
             email,
+            inquiryType: inquiry_type,
             messageLength: message.length,
             timestamp: new Date().toISOString(),
             ip: req.ip,

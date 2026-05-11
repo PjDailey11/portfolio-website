@@ -129,7 +129,7 @@ const pageContent = {
         hero: {
             kicker: 'TUTOR · AI CONSULTANT · BUILDER',
             title: 'PJ Dailey — Math & CS Tutor and AI Consultant.',
-            description: 'I help students master hard subjects, help businesses implement practical AI systems, and build web products that turn ideas into repeatable workflows.',
+            description: 'I help students master hard subjects and help businesses implement practical AI systems that save time and reduce repetitive work.',
             primaryCta: { label: 'Book a Call', href: '/contact' },
             secondaryCta: { label: 'Explore Services', href: '/tutoring' },
             tertiaryCta: { label: 'See Projects', href: '/projects' },
@@ -140,11 +140,6 @@ const pageContent = {
             ],
         },
         serviceCards: [
-            {
-                title: 'About Me',
-                description: 'Learn about the academic, technical, and creator background behind the business.',
-                href: '/about',
-            },
             {
                 title: 'Tutoring',
                 description: 'Math, CS, test prep, AI workflows, and problem-solving support for grades 9-12 and college-level topics.',
@@ -166,7 +161,7 @@ const pageContent = {
         path: '/about',
         title: 'About Me | PJ Dailey',
         description: 'About PJ Dailey: undergraduate student, tutor, AI consultant, full-stack developer, and content creator.',
-        bio: 'Hi, I am PJ Dailey - an undergraduate student, tutor, AI consultant, and full-stack developer. I help students master math, computer science, and standardized tests, and I help businesses integrate AI workflows that save time, reduce costs, and increase output. I am also a content creator focused on AI education, productivity, and tech.',
+        bio: 'Hi, I am PJ Dailey — a Math and CS tutor and AI consultant based in the Houston area. I help students master hard subjects through structured, concept-first sessions, and I help businesses implement practical AI workflows that reduce repetitive work and improve output. On the side, I create content on AI tools, productivity systems, and coding.',
         accomplishments: [
             'Runs a tutoring business for grades 9-12.',
             'Tutors advanced subjects: AI workflows, SAT/ACT, Algebra through Calculus II, Linear Algebra, Data Structures, Algorithms, and LeetCode.',
