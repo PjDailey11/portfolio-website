@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple interactive calculator — basic arithmetic with keyboard support.">
+    <title>Calculator | PJ Dailey</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="ambient-blob ambient-blob--a"></div>
+        <div class="ambient-blob ambient-blob--b"></div>
+        <div class="ambient-blob ambient-blob--c"></div>
+        <div class="ambient-mesh"></div>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to calculator</a>
+
+    <header class="calc-nav">
+        <div class="calc-nav-inner">
+            <a href="index.html" class="calc-back">← Portfolio</a>
+            <span class="calc-nav-title">Calculator</span>
+        </div>
+    </header>
+
+    <main id="main" class="calc-main">
+        <div class="calc-shell">
+            <div class="calc-card" role="application" aria-label="Calculator">
+                <div class="calc-display-wrap">
+                    <div class="calc-subdisplay" id="subdisplay" aria-hidden="true"></div>
+                    <output class="calc-display" id="display" for="calc-keys" aria-live="polite" aria-atomic="true">0</output>
+                </div>
+
+                <div class="calc-grid" id="calc-keys">
+                    <button type="button" class="calc-btn calc-btn--muted" data-action="clear-entry" aria-label="Clear entry">CE</button>
+                    <button type="button" class="calc-btn calc-btn--muted" data-action="clear" aria-label="All clear">AC</button>
+                    <button type="button" class="calc-btn calc-btn--muted" data-action="backspace" aria-label="Backspace">⌫</button>
+                    <button type="button" class="calc-btn calc-btn--accent" data-action="operator" data-value="/" aria-label="Divide">÷</button>
+
+                    <button type="button" class="calc-btn" data-action="digit" data-value="7">7</button>
+                    <button type="button" class="calc-btn" data-action="digit" data-value="8">8</button>
+                    <button type="button" class="calc-btn" data-action="digit" data-value="9">9</button>
+                    <button type="button" class="calc-btn calc-btn--accent" data-action="operator" data-value="*" aria-label="Multiply">×</button>
+
+                    <button type="button" class="calc-btn" data-action="digit" data-value="4">4</button>
+                    <button type="button" class="calc-btn" data-action="digit" data-value="5">5</button>
+                    <button type="button" class="calc-btn" data-action="digit" data-value="6">6</button>
+                    <button type="button" class="calc-btn calc-btn--accent" data-action="operator" data-value="-" aria-label="Subtract">−</button>
+
+                    <button type="button" class="calc-btn" data-action="digit" data-value="1">1</button>
+                    <button type="button" class="calc-btn" data-action="digit" data-value="2">2</button>
+                    <button type="button" class="calc-btn" data-action="digit" data-value="3">3</button>
+                    <button type="button" class="calc-btn calc-btn--accent" data-action="operator" data-value="+" aria-label="Add">+</button>
+
+                    <button type="button" class="calc-btn calc-btn--muted" data-action="toggle-sign" aria-label="Toggle sign">±</button>
+                    <button type="button" class="calc-btn" data-action="digit" data-value="0">0</button>
+                    <button type="button" class="calc-btn" data-action="decimal">.</button>
+                    <button type="button" class="calc-btn calc-btn--equals" data-action="equals" aria-label="Equals">=</button>
+                </div>
+
+                <p class="calc-hint">Keyboard: digits, operators (<kbd>+</kbd> <kbd>-</kbd> <kbd>*</kbd> <kbd>/</kbd>), <kbd>Enter</kbd> or <kbd>=</kbd> for equals, <kbd>Escape</kbd> to clear, <kbd>Backspace</kbd> to delete.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
