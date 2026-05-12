@@ -63,20 +63,46 @@
 <section class="container-shell mt-16">
     <%- include('../partials/section-header', {
         kicker: 'Pricing',
-        title: 'Consulting tiers',
-        body: 'Simple pricing to make it easier to start with a scoped engagement.',
+        title: page.pricingTitle,
+        body: page.pricingIntro,
         centered: false,
     }) %>
 
-    <div class="site-grid mt-6">
-        <% page.pricing.forEach(function (tier) { %>
-            <article class="surface-card p-6">
-                <p class="eyebrow"><%= tier.title %></p>
-                <h3 class="mt-4 text-3xl font-semibold tracking-tight"><%= tier.price %></h3>
-                <p class="body-sm mt-4"><%= tier.description %></p>
+    <div class="mt-6 grid gap-6 lg:grid-cols-3">
+        <% page.consultingRates.forEach(function (service) { %>
+            <article class="surface-card p-6 sm:p-8">
+                <p class="eyebrow"><%= service.title %></p>
+                <dl class="mt-6 space-y-4">
+                    <% service.rates.forEach(function (rate) { %>
+                        <div class="flex items-start justify-between gap-4 rounded-[1.5rem] border px-4 py-4" style="border-color: var(--border); background: color-mix(in srgb, var(--surface-strong) 78%, transparent);">
+                            <dt class="text-sm" style="color: var(--text-muted);"><%= rate.label %></dt>
+                            <dd class="text-right text-sm font-semibold" style="color: var(--text);"><%= rate.price %></dd>
+                        </div>
+                    <% }) %>
+                </dl>
             </article>
         <% }) %>
     </div>
+
+    <article class="surface-card mt-6 p-6 sm:p-8">
+        <p class="eyebrow"><%= page.buildoutTitle %></p>
+        <h3 class="mt-3 text-2xl font-semibold tracking-tight">Scoped systems from simple automation to advanced orchestration.</h3>
+
+        <div class="mt-6 grid gap-6 lg:grid-cols-3">
+            <% page.buildoutTiers.forEach(function (tier) { %>
+                <section class="rounded-[1.5rem] border px-4 py-4" style="border-color: var(--border); background: color-mix(in srgb, var(--surface-strong) 78%, transparent);">
+                    <h4 class="text-sm font-semibold uppercase tracking-[0.18em]" style="color: var(--text);"><%= tier.title %></h4>
+                    <p class="mt-4 text-2xl font-semibold tracking-tight"><%= tier.price %></p>
+                    <ul class="list-check mt-4 space-y-3 text-sm leading-7" role="list" style="color: var(--text-muted);">
+                        <% tier.bullets.forEach(function (bullet) { %>
+                            <li><%= bullet %></li>
+                        <% }) %>
+                    </ul>
+                    <p class="body-sm mt-4"><span class="font-semibold" style="color: var(--text);">Examples:</span> <%= tier.examples %></p>
+                </section>
+            <% }) %>
+        </div>
+    </article>
 </section>
 
 <%- include('../partials/cta-banner', {
