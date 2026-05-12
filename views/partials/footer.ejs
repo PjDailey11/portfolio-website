@@ -1,6 +1,6 @@
 <footer class="mt-20 border-t border-[var(--border)]">
     <div class="container-shell py-10">
-        <div class="grid gap-8 lg:grid-cols-[1.6fr,1fr,1fr]">
+        <div class="grid gap-8 lg:grid-cols-[1.4fr,1fr,1fr,1fr]">
             <div class="space-y-4">
                 <p class="eyebrow">PJ Dailey</p>
                 <h2 class="text-2xl font-semibold tracking-tight">Modern tutoring, practical AI consulting, and builder-first execution.</h2>
@@ -11,22 +11,38 @@
                 <%- include('social-links', { links: site.socialLinks.filter(function (item) { return item.label !== 'GitHub'; }) }) %>
             </div>
 
-            <% site.footerLinks.forEach(function (group) { %>
-                <div>
-                    <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text-soft)]"><%= group.title %></h3>
-                    <ul class="mt-4 space-y-3">
-                        <% group.links.forEach(function (link) { %>
-                            <li>
-                                <% if (link.isEmail) { %>
-                                    <span class="text-sm text-[var(--text-muted)]"><%= link.label %></span>
-                                <% } else { %>
-                                    <a href="<%= link.href %>" class="text-sm text-[var(--text-muted)] hover:text-[var(--text)]"><%= link.label %></a>
-                                <% } %>
-                            </li>
-                        <% }) %>
-                    </ul>
-                </div>
-            <% }) %>
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text-soft)]">Quick Links</h3>
+                <ul class="mt-4 space-y-3">
+                    <% site.navLinks.forEach(function (link) { %>
+                        <li>
+                            <a href="<%= link.href %>" class="text-sm text-[var(--text-muted)] hover:text-[var(--text)]"><%= link.label %></a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text-soft)]">Tutoring Subjects</h3>
+                <ul class="mt-4 space-y-3 text-sm text-[var(--text-muted)]">
+                    <li>Algebra through Calculus II</li>
+                    <li>Linear Algebra</li>
+                    <li>SAT and ACT Math</li>
+                    <li>Computer Science and Python</li>
+                    <li>Data Structures and Algorithms</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text-soft)]">AI Systems I Build</h3>
+                <ul class="mt-4 space-y-3 text-sm text-[var(--text-muted)]">
+                    <li>Workflow automation</li>
+                    <li>AI content pipelines</li>
+                    <li>Lead qualification systems</li>
+                    <li>Tutoring support workflows</li>
+                    <li>Research and summary automation</li>
+                </ul>
+            </div>
         </div>
 
         <div class="mt-10 flex flex-col gap-3 border-t border-[var(--border)] pt-6 text-sm text-[var(--text-soft)] sm:flex-row sm:items-center sm:justify-between">

@@ -14,14 +14,28 @@ const hero = {
 };
 
 const featuredProjects = [
-    projects[0],
-    projects[1],
+    {
+        ...projects[0],
+        whyItMatters: 'Why it matters: This project shows disciplined security-focused engineering with clear boundaries, documentation, and real defensive value.',
+    },
+    {
+        ...projects[1],
+        whyItMatters: 'Why it matters: It reflects the kind of privacy-conscious AI system design that businesses and technical teams increasingly care about.',
+    },
     {
         ...projects[2],
         type: 'PYTORCH VISION TOOLKIT',
         stack: ['Python', 'PyTorch', 'Streamlit', 'Docker'],
         liveUrl: null,
+        whyItMatters: 'Why it matters: It demonstrates deeper machine-learning implementation work beyond UI-level AI tooling or simple API wrappers.',
     },
+];
+
+const whyBullets = [
+    'Students start with a quick diagnostic so sessions focus on the exact skills holding grades or test scores back.',
+    'Business projects are scoped around one real workflow first, so the result is something useful your team can actually keep using.',
+    'You get clear next steps, documentation, and defined deliverables instead of vague advice or open-ended experimentation.',
+    'If you want hype, shortcuts, or a fully hands-off build with no collaboration, I am probably not the right fit.',
 ];
 %>
 <%- include('../partials/page-hero', { hero: hero }) %>
@@ -30,7 +44,7 @@ const featuredProjects = [
     <%- include('../partials/section-header', {
         kicker: 'SERVICES',
         title: 'Three ways to work with me',
-        body: 'Tutoring for students, AI workflow consulting for businesses, and content for people who want to learn. Pick the one that fits.',
+        body: 'Choose the path that fits: tutoring for students, AI workflow consulting for small businesses, or educational content for people who want to learn.',
         centered: false,
     }) %>
 
@@ -39,6 +53,13 @@ const featuredProjects = [
             <article class="surface-card p-6">
                 <h3 class="text-xl font-semibold tracking-tight"><%= card.title %></h3>
                 <p class="body-sm mt-3"><%= card.description %></p>
+                <% if (card.bullets && card.bullets.length) { %>
+                    <ul class="list-check mt-5 space-y-3 text-sm leading-7 text-[var(--text-muted)]">
+                        <% card.bullets.forEach(function (item) { %>
+                            <li><%= item %></li>
+                        <% }) %>
+                    </ul>
+                <% } %>
                 <a href="<%= card.href %>" class="btn-ghost mt-5 px-0">Explore <%= card.title %></a>
             </article>
         <% }) %>
@@ -50,9 +71,9 @@ const featuredProjects = [
         <p class="eyebrow">Why clients work with me</p>
         <h2 class="mt-3 text-3xl font-semibold tracking-tight">What makes sessions and engagements worth your time.</h2>
         <ul class="list-check mt-6 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
-            <li>Students get structured, concept-first sessions that build lasting understanding — not just help getting through tonight's assignment.</li>
-            <li>Businesses get practical AI workflows scoped to real problems, with no unnecessary complexity and no tools you can't maintain yourself.</li>
-            <li>Every engagement is defined clearly upfront — what gets built, what it costs, and what the outcome looks like.</li>
+            <% whyBullets.forEach(function (bullet) { %>
+                <li><%= bullet %></li>
+            <% }) %>
         </ul>
     </div>
 </section>
@@ -69,11 +90,19 @@ const featuredProjects = [
             </div>
             <div>
                 <dt class="text-sm font-semibold text-[var(--text-soft)]">Phone</dt>
-                <dd class="mt-1 text-base text-[var(--text)]"><%= site.contact.phoneLabel %></dd>
+                <dd class="mt-1 text-base">
+                    <a href="<%= site.contact.phoneHref %>" class="text-[var(--text)] hover:text-[var(--primary)]"><%= site.contact.phoneLabel %></a>
+                </dd>
             </div>
             <div>
                 <dt class="text-sm font-semibold text-[var(--text-soft)]">Email</dt>
-                <dd class="mt-1 text-base text-[var(--text)]"><%= site.contact.emailLabel %></dd>
+                <dd class="mt-1 text-base">
+                    <a href="<%= site.contact.emailHref %>" class="text-[var(--text)] hover:text-[var(--primary)]"><%= site.contact.emailLabel %></a>
+                </dd>
+            </div>
+            <div>
+                <dt class="text-sm font-semibold text-[var(--text-soft)]">Typical response time</dt>
+                <dd class="mt-1 text-base text-[var(--text)]">within 24 hours on weekdays.</dd>
             </div>
         </dl>
     </div>
@@ -82,8 +111,8 @@ const featuredProjects = [
 <section class="container-shell mt-16 space-y-6">
     <%- include('../partials/section-header', {
         kicker: 'Recent public work',
-        title: 'Selected projects from GitHub',
-        body: 'A focused set of recent public repositories that reflect the technical side of the portfolio.',
+        title: 'Projects that show how I build and teach',
+        body: 'These projects show the technical depth behind the tutoring and AI systems work on this site.',
         centered: false,
     }) %>
 
@@ -96,10 +125,10 @@ const featuredProjects = [
 
 <%- include('../partials/cta-banner', {
     kicker: 'Start here',
-    title: 'Need tutoring, AI support, or a custom workflow?',
-    body: 'Use the contact page to outline what you need, and I can point you to the right next step.',
+    title: 'Need tutoring or a workflow that saves time?',
+    body: 'Use the contact page to explain what you need. I can quickly tell you whether tutoring, AI consulting, or another next step makes sense.',
     actions: [
-        { label: 'Book a Call', href: '/contact' },
+        { label: 'Get in Touch', href: '/contact' },
         { label: 'See all 4 projects →', href: '/projects' },
     ],
 }) %>
