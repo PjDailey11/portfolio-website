@@ -50,16 +50,86 @@
     <%- include('../partials/section-header', {
         kicker: 'Pricing',
         title: 'Tutoring packages',
-        body: 'Pricing is separated by difficulty level so families know what kind of support they are getting.',
+        body: page.pricingIntro,
+        centered: false,
+    }) %>
+
+    <div class="mt-6 grid gap-6 xl:grid-cols-2">
+        <% page.pricingSuites.forEach(function (suite) { %>
+            <article class="surface-card p-6 sm:p-8">
+                <p class="eyebrow"><%= suite.title %></p>
+                <h3 class="mt-3 text-2xl font-semibold tracking-tight"><%= suite.subtitle %></h3>
+
+                <div class="mt-6 space-y-6">
+                    <% suite.sections.forEach(function (section) { %>
+                        <section>
+                            <h4 class="text-base font-semibold tracking-tight"><%= section.title %></h4>
+
+                            <% if (section.kind === 'rates') { %>
+                                <dl class="mt-3 space-y-3">
+                                    <% section.items.forEach(function (item) { %>
+                                        <div class="flex flex-wrap items-baseline justify-between gap-3 border-t border-[var(--border)] pt-3">
+                                            <dt class="body-sm"><%= item.label %></dt>
+                                            <dd class="text-sm font-semibold text-[var(--text)]"><%= item.price %></dd>
+                                        </div>
+                                    <% }) %>
+                                </dl>
+                            <% } else if (section.kind === 'bullets') { %>
+                                <ul class="mt-3 space-y-2 text-sm leading-7 text-[var(--text-muted)]">
+                                    <% section.items.forEach(function (item) { %>
+                                        <li><%= item %></li>
+                                    <% }) %>
+                                </ul>
+                                <% if (section.footer) { %>
+                                    <div class="mt-4 rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] p-4">
+                                        <p class="text-sm font-semibold text-[var(--text)]"><%= section.footer.label %>: <%= section.footer.price %></p>
+                                    </div>
+                                <% } %>
+                            <% } else if (section.kind === 'comparison') { %>
+                                <div class="mt-3 overflow-x-auto">
+                                    <table class="w-full min-w-[32rem] text-left text-sm">
+                                        <thead class="text-[var(--text)]">
+                                            <tr>
+                                                <th class="border-b border-[var(--border)] py-3 pr-4 font-semibold">Service</th>
+                                                <% section.columns.forEach(function (column) { %>
+                                                    <th class="border-b border-[var(--border)] px-4 py-3 font-semibold"><%= column %></th>
+                                                <% }) %>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-[var(--text-muted)]">
+                                            <% section.rows.forEach(function (row) { %>
+                                                <tr>
+                                                    <th class="border-b border-[var(--border)] py-3 pr-4 font-medium text-[var(--text)]"><%= row.label %></th>
+                                                    <% row.values.forEach(function (value) { %>
+                                                        <td class="border-b border-[var(--border)] px-4 py-3"><%= value %></td>
+                                                    <% }) %>
+                                                </tr>
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <% } %>
+                        </section>
+                    <% }) %>
+                </div>
+            </article>
+        <% }) %>
+    </div>
+</section>
+
+<section class="container-shell mt-16">
+    <%- include('../partials/section-header', {
+        kicker: 'Add-ons',
+        title: 'Optional session support',
+        body: 'Add focused support when a student needs extra structure between sessions.',
         centered: false,
     }) %>
 
     <div class="site-grid mt-6">
-        <% page.pricing.forEach(function (tier) { %>
+        <% page.addOns.forEach(function (addOn) { %>
             <article class="surface-card p-6">
-                <p class="eyebrow"><%= tier.title %></p>
-                <h3 class="mt-4 text-3xl font-semibold tracking-tight"><%= tier.price %></h3>
-                <p class="body-sm mt-4"><%= tier.description %></p>
+                <p class="body-sm"><%= addOn.label %></p>
+                <p class="mt-3 text-2xl font-semibold tracking-tight"><%= addOn.price %></p>
             </article>
         <% }) %>
     </div>

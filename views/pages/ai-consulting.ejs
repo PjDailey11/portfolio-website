@@ -63,17 +63,47 @@
 <section class="container-shell mt-16">
     <%- include('../partials/section-header', {
         kicker: 'Pricing',
-        title: 'Consulting tiers',
-        body: 'Simple pricing to make it easier to start with a scoped engagement.',
+        title: page.pricingTitle,
+        body: page.pricingIntro,
         centered: false,
     }) %>
 
     <div class="site-grid mt-6">
-        <% page.pricing.forEach(function (tier) { %>
+        <% page.consultingRates.forEach(function (tier) { %>
+            <article class="surface-card p-6">
+                <p class="eyebrow"><%= tier.title %></p>
+                <dl class="mt-5 space-y-3">
+                    <% tier.rates.forEach(function (rate) { %>
+                        <div class="flex flex-wrap items-baseline justify-between gap-3 border-t border-[var(--border)] pt-3">
+                            <dt class="body-sm"><%= rate.label %></dt>
+                            <dd class="text-sm font-semibold text-[var(--text)]"><%= rate.price %></dd>
+                        </div>
+                    <% }) %>
+                </dl>
+            </article>
+        <% }) %>
+    </div>
+</section>
+
+<section class="container-shell mt-16">
+    <%- include('../partials/section-header', {
+        kicker: 'Buildouts',
+        title: page.buildoutTitle,
+        body: 'Scoped systems for teams that need more than coaching or a one-off workflow session.',
+        centered: false,
+    }) %>
+
+    <div class="site-grid mt-6">
+        <% page.buildoutTiers.forEach(function (tier) { %>
             <article class="surface-card p-6">
                 <p class="eyebrow"><%= tier.title %></p>
                 <h3 class="mt-4 text-3xl font-semibold tracking-tight"><%= tier.price %></h3>
-                <p class="body-sm mt-4"><%= tier.description %></p>
+                <ul class="mt-4 space-y-2 text-sm leading-7 text-[var(--text-muted)]">
+                    <% tier.bullets.forEach(function (bullet) { %>
+                        <li><%= bullet %></li>
+                    <% }) %>
+                </ul>
+                <p class="body-sm mt-4">Examples: <%= tier.examples %></p>
             </article>
         <% }) %>
     </div>
