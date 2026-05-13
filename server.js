@@ -12,6 +12,12 @@ const { shared, pageByKey } = require('./src/data/site');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Vercel (and other reverse proxies) set X-Forwarded-For. express-rate-limit v7+
+// validates this and throws if trust proxy is left false — which breaks every route.
+if (process.env.VERCEL) {
+    app.set('trust proxy', true);
+}
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
