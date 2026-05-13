@@ -3,10 +3,10 @@
 <%- include('../partials/page-hero', {
     hero: {
         kicker: 'Social Media',
-        title: 'AI education, productivity systems, and coding content for growing platforms.',
-        description: 'The creator side of the portfolio is centered on practical AI education, study workflows, and technical content that helps people use tools more effectively.',
+        title: 'College sports lifestyle, NIL partnerships, and useful tech content.',
+        description: 'I create around student-athlete life, college sports, lifestyle, AI education, productivity, and coding - with room for brand deals, affiliate marketing, and collaborations.',
         actions: [
-            { label: 'Work With Me', href: '/contact' },
+            { label: 'Partner With Me', href: '/contact' },
             { label: 'View Instagram', href: 'https://www.instagram.com/simplydailey' },
         ],
     },
@@ -39,6 +39,18 @@
 </section>
 
 <section class="container-shell mt-16">
+    <div class="surface-card p-6 sm:p-8">
+        <p class="eyebrow">Partnerships</p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight">Open to creator partnerships that fit the audience.</h2>
+        <div class="mt-6 flex flex-wrap gap-3">
+            <% page.partnershipCategories.forEach(function (category) { %>
+                <span class="chip"><%= category %></span>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<section class="container-shell mt-16">
     <%- include('../partials/section-header', {
         kicker: 'Profile Snapshots',
         title: 'Current social profiles and channel presence',
@@ -53,10 +65,10 @@
 
 <%- include('../partials/cta-banner', {
     kicker: 'Creator CTA',
-    title: 'Work With Me',
-    body: 'If you want education-first creator work, productivity content, or AI workflow content support, use the contact page to start the conversation.',
+    title: 'Partner With Me',
+    body: 'Use the contact form for NIL opportunities, brand deals, affiliate marketing, collaborations, or creator campaigns tied to college sports, lifestyle, AI, and tech.',
     actions: [
-        { label: 'Work With Me', href: '/contact' },
+        { label: 'Partner With Me', href: '/contact' },
     ],
 }) %>
 

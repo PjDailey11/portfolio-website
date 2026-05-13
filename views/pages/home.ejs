@@ -70,48 +70,20 @@ const whyBullets = [
 <section class="container-shell mt-16">
     <div class="surface-card p-6 sm:p-8">
         <p class="eyebrow">Contact snapshot</p>
-        <%
-        var snapshotEmail = site.contact && site.contact.emailLabel ? String(site.contact.emailLabel) : '';
-        var snapshotAt = snapshotEmail.indexOf('@');
-        var snapshotLocal = snapshotAt > 0 ? snapshotEmail.slice(0, snapshotAt) : '';
-        var snapshotRest = snapshotAt > 0 ? snapshotEmail.slice(snapshotAt + 1) : '';
-        var snapshotDot = snapshotRest.lastIndexOf('.');
-        var snapshotDomain = snapshotDot > 0 ? snapshotRest.slice(0, snapshotDot) : '';
-        var snapshotTld = snapshotDot > 0 && snapshotDot < snapshotRest.length - 1 ? snapshotRest.slice(snapshotDot + 1) : '';
-        var snapshotEmailPartsOk = Boolean(snapshotLocal && snapshotDomain && snapshotTld);
-        %>
         <dl class="mt-5 space-y-5">
             <div>
-                <dt class="text-sm font-semibold text-[var(--text-soft)]">Location</dt>
+                <dt class="text-sm font-semibold text-[var(--text-soft)]">Availability</dt>
                 <dd class="mt-1 text-base text-[var(--text)]"><%= site.locationLabel %></dd>
             </div>
             <div>
-                <dt class="text-sm font-semibold text-[var(--text-soft)]">Phone</dt>
+                <dt class="text-sm font-semibold text-[var(--text-soft)]">Public contact method</dt>
                 <dd class="mt-1 text-base">
-                    <a href="/contact" class="text-[var(--text)] hover:text-[var(--primary)]">Available via the contact form</a>
+                    <a href="/contact" class="text-[var(--text)] hover:text-[var(--primary)]">Use the contact form</a>
                 </dd>
             </div>
             <div>
-                <dt class="text-sm font-semibold text-[var(--text-soft)]">Email</dt>
-                <dd class="mt-1 text-base">
-                    <% if (snapshotEmailPartsOk) { %>
-                        <a
-                            href="/contact"
-                            class="text-[var(--text)] hover:text-[var(--primary)]"
-                            data-contact-email
-                            data-u="<%= snapshotLocal %>"
-                            data-d="<%= snapshotDomain %>"
-                            data-tld="<%= snapshotTld %>"
-                            aria-label="Send email"
-                        >Send email</a>
-                    <% } else { %>
-                        <a href="/contact" class="text-[var(--text)] hover:text-[var(--primary)]">Email via contact form</a>
-                    <% } %>
-                </dd>
-            </div>
-            <div>
-                <dt class="text-sm font-semibold text-[var(--text-soft)]">Typical response time</dt>
-                <dd class="mt-1 text-base text-[var(--text)]">within 24 hours on weekdays.</dd>
+                <dt class="text-sm font-semibold text-[var(--text-soft)]">Response target</dt>
+                <dd class="mt-1 text-base text-[var(--text)]">within 1-2 business days after form review.</dd>
             </div>
         </dl>
     </div>

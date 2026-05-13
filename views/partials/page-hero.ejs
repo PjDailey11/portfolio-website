@@ -10,7 +10,12 @@
             <% if (hero.actions && hero.actions.length) { %>
                 <div class="mt-8 flex flex-wrap gap-3">
                     <% hero.actions.forEach(function (action, index) { %>
-                        <a href="<%= action.href %>" class="<%= index === 0 ? 'btn-primary' : 'btn-secondary' %>"><%= action.label %></a>
+                        <a href="<%= action.href %>" class="<%= index === 0 ? 'btn-primary' : 'btn-secondary' %>">
+                            <% if (action.iconSrc) { %>
+                                <img src="<%= action.iconSrc %>" alt="" class="h-5 w-5 rounded-full bg-white object-contain" loading="lazy">
+                            <% } %>
+                            <%= action.label %>
+                        </a>
                     <% }) %>
                 </div>
             <% } %>
