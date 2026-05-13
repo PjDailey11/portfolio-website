@@ -2,74 +2,184 @@
 
 <%- include('../partials/page-hero', {
     hero: {
-        kicker: 'About Me',
+        kicker: 'About',
         title: 'A teaching-first operator who also builds technical systems.',
         description: page.bio,
         actions: [
             { label: 'Explore Tutoring', href: '/tutoring' },
             { label: 'Explore AI Consulting', href: '/ai-consulting' },
+            { label: 'See Projects', href: '/projects' },
         ],
         visual: 'portrait',
     },
 }) %>
 
-<section class="container-shell mt-16 grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+<section class="container-shell mt-16 grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
     <div class="surface-card p-6 sm:p-8">
         <%- include('../partials/section-header', {
-            kicker: 'Accomplishments',
-            title: 'Two areas: teaching students and building AI systems.',
-            body: 'Here is what each side of the work looks like in practice.',
+            kicker: 'What I do',
+            title: 'I help people move from confusion to a usable plan.',
+            body: 'The work looks different on the surface, but the through-line is the same: teach clearly, simplify complexity, and build something useful enough to keep using.',
             centered: false,
         }) %>
-        <div class="mt-6 space-y-8">
-            <div>
-                <h3 class="text-lg font-semibold tracking-tight">TUTORING &amp; TEACHING:</h3>
-                <ul class="list-check mt-4 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
-                    <li>Runs an active tutoring business serving grades 9-12 and college students.</li>
-                    <li>Tutors: SAT/ACT Math, Algebra I &amp; II through Calculus II, Linear Algebra, Computer Science (Python, JS, C), Data Structures &amp; Algorithms, LeetCode prep, and AI workflow instruction.</li>
-                    <li>Known for step-by-step explanations that build lasting conceptual understanding.</li>
-                </ul>
+        <div class="mt-6 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+            <p>
+                I work with students who need clear support in math and computer science, and with small teams that
+                want practical AI systems they can actually understand and use. In both cases, the job is the same:
+                make complex work clearer, reduce friction, and create a process that holds up after the session or
+                project is over.
+            </p>
+            <p>
+                That is why tutoring, consulting, and building all live under one brand. Teaching keeps the
+                communication sharp. Building keeps the work grounded. The result is a practice centered on clarity,
+                technical execution, and useful systems rather than noise.
+            </p>
+        </div>
+    </div>
+
+    <div class="surface-card p-6 sm:p-8">
+        <div>
+            <p class="eyebrow">Who I help</p>
+            <ul class="list-check mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                <li>High school and college students who need structured support in math, computer science, or test prep.</li>
+                <li>Tutors, creators, and small business owners who want AI workflows or lightweight internal systems.</li>
+                <li>People who value plain language, honest scope, and practical execution over hype.</li>
+            </ul>
+        </div>
+        <div class="mt-8 border-t border-[var(--border)] pt-8">
+            <p class="eyebrow">How I work</p>
+            <ul class="list-check mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                <li>Start with the real bottleneck, not a vague idea of improvement.</li>
+                <li>Explain the logic behind the work so the next step is easier to trust and repeat.</li>
+                <li>Keep scope honest and build systems that are usable, maintainable, and easy to follow.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="container-shell mt-16">
+    <div class="surface-card p-6 sm:p-8">
+        <%- include('../partials/section-header', {
+            kicker: 'Tutoring',
+            title: 'Clear support for math, computer science, and exam prep.',
+            body: 'Tutoring is the foundation of the brand: careful diagnosis, step-by-step explanation, and a focus on helping students think more clearly on their own.',
+            centered: false,
+        }) %>
+
+        <div class="mt-6 grid gap-6 lg:grid-cols-[1fr,0.95fr]">
+            <div class="space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                <p>
+                    Most of my tutoring work is with high school and college students who need structure, better
+                    explanations, and a calmer way to work through difficult material. I focus on understanding first,
+                    then practice, then independence.
+                </p>
+                <p>
+                    Sessions are direct and practical. We identify where the confusion starts, work through the logic,
+                    and turn the material into something the student can use on homework, tests, and future problems.
+                </p>
             </div>
 
-            <div>
-                <h3 class="text-lg font-semibold tracking-tight">BUILDING &amp; DEVELOPMENT:</h3>
-                <ul class="list-check mt-4 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
-                    <li>Built multiple full-stack web applications using Express, EJS, SQLite, and TailwindCSS.</li>
-                    <li>Shipped this portfolio site using Express, EJS, TailwindCSS, and Vercel — handling routing, templating, and deployment end to end.</li>
-                </ul>
+            <div class="surface-card-strong p-5">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--text-soft)]">Subjects I regularly teach</p>
+                <div class="mt-4 flex flex-wrap gap-3">
+                    <span class="chip">SAT / ACT Math</span>
+                    <span class="chip">Algebra I &amp; II</span>
+                    <span class="chip">Geometry</span>
+                    <span class="chip">Pre-Calculus</span>
+                    <span class="chip">Calculus I &amp; II</span>
+                    <span class="chip">Linear Algebra</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">C</span>
+                    <span class="chip">Data Structures &amp; Algorithms</span>
+                    <span class="chip">LeetCode prep</span>
+                    <span class="chip">AI workflows for students</span>
+                </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-shell mt-16 grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
+    <div class="surface-card p-6 sm:p-8">
+        <%- include('../partials/section-header', {
+            kicker: 'AI Systems',
+            title: 'Practical builds for people who need clarity, not hype.',
+            body: 'On the consulting side, I work best when there is a real process to improve and a clear reason the system should exist.',
+            centered: false,
+        }) %>
+
+        <div class="mt-6 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+            <p>
+                I usually work with tutors, creators, and small teams that want a better process for research,
+                content, intake, follow-up, or internal operations. The goal is not to make the workflow sound
+                impressive. It is to make it easier to run.
+            </p>
+            <p>
+                On the technical side, I am comfortable building with JavaScript and Python across tools like Express,
+                EJS, SQLite, TailwindCSS, FastAPI, and lightweight deployment workflows. I prefer systems that are
+                understandable, maintainable, and easy to hand off.
+            </p>
+            <p>
+                The connection to tutoring is intentional: if I cannot explain a system clearly, it is probably not
+                ready yet.
+            </p>
         </div>
     </div>
 
     <div class="space-y-6">
         <div class="surface-card p-6">
-            <p class="eyebrow">Accolades</p>
-            <p class="body-sm mt-5">References and student outcome examples are available on request.</p>
-        </div>
-
-        <div class="surface-card p-6">
-            <p class="eyebrow">Education</p>
-            <ul class="mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
-                <% page.education.forEach(function (item) { %>
-                    <li><%= item %></li>
-                <% }) %>
+            <p class="eyebrow">Good fit projects</p>
+            <ul class="list-check mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+                <li>Tutoring support workflows and student-facing AI systems.</li>
+                <li>Research, summarization, and knowledge-organizing pipelines.</li>
+                <li>Content planning, drafting, and repurposing workflows.</li>
+                <li>Lead intake, follow-up, and other small operational systems.</li>
+                <li>Lightweight web apps and internal tools that solve one concrete problem well.</li>
             </ul>
         </div>
 
         <div class="surface-card p-6">
-            <p class="eyebrow">Athletics</p>
-            <p class="body-sm mt-4">Former Division II college baseball athlete at St. Edward's University.</p>
+            <p class="eyebrow">Tools I use</p>
+            <div class="mt-5 flex flex-wrap gap-3">
+                <span class="chip">JavaScript</span>
+                <span class="chip">Python</span>
+                <span class="chip">Express</span>
+                <span class="chip">EJS</span>
+                <span class="chip">SQLite</span>
+                <span class="chip">TailwindCSS</span>
+                <span class="chip">FastAPI</span>
+                <span class="chip">Vercel</span>
+            </div>
         </div>
+    </div>
+</section>
+
+<section class="container-shell mt-16 grid gap-6 lg:grid-cols-[1fr,1fr]">
+    <div class="surface-card p-6">
+        <p class="eyebrow">Education</p>
+        <ul class="mt-5 space-y-4 text-sm leading-7 text-[var(--text-muted)]">
+            <% page.education.forEach(function (item) { %>
+                <li><%= item %></li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <div class="surface-card p-6">
+        <p class="eyebrow">Personal edge</p>
+        <p class="body-sm mt-4"><%= page.athletics %></p>
     </div>
 </section>
 
 <%- include('../partials/cta-banner', {
     kicker: 'Next step',
-    title: 'Want to work with me as a tutor, consultant, or creator partner?',
-    body: 'The tutoring, AI consulting, and contact pages break down exactly how I work.',
+    title: 'Pick the path that matches what you need.',
+    body: 'Use Tutoring for academic support, AI Consulting for workflow work, Projects to see public builds, or Contact if you want to talk through fit first.',
     actions: [
         { label: 'See Tutoring', href: '/tutoring' },
-        { label: 'Book a Call', href: '/contact' },
+        { label: 'See AI Consulting', href: '/ai-consulting' },
+        { label: 'See Projects', href: '/projects' },
+        { label: 'Contact PJ', href: '/contact' },
     ],
 }) %>
 

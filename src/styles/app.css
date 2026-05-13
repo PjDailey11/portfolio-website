@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+    --font-sans: "General Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
@@ -75,7 +79,7 @@
 
     body {
         @apply min-h-screen text-[var(--text)] antialiased transition-colors duration-300;
-        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        font-family: "General Sans", "Segoe UI", system-ui, sans-serif;
         background: var(--bg);
     }
 
@@ -209,6 +213,14 @@
         stroke-width: 1.8;
         stroke-linecap: round;
         stroke-linejoin: round;
+    }
+
+    /* Page shell: subtle grid overlay (was inline style for CSP-friendly external CSS) */
+    .bg-site-grid {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        background-size: 72px 72px;
     }
 
     .site-grid {

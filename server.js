@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const crypto = require('crypto');
 const express = require('express');
 const path = require('path');
@@ -6,8 +8,6 @@ const rateLimit = require('express-rate-limit');
 const { body, validationResult } = require('express-validator');
 const { router: pageRouter } = require('./routes/pages');
 const { shared, pageByKey } = require('./src/data/site');
-
-require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,8 +25,8 @@ app.use(helmet({
     contentSecurityPolicy: {
         directives: {
             defaultSrc: ["'self'"],
-            styleSrc: ["'self'", 'https://fonts.googleapis.com'],
-            fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+            styleSrc: ["'self'", 'https://api.fontshare.com'],
+            fontSrc: ["'self'", 'https://cdn.fontshare.com'],
             scriptSrc: [
                 "'self'",
                 (req, res) => `'nonce-${res.locals.nonce}'`,
@@ -45,6 +45,11 @@ app.use(helmet({
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path;
+    next();
+});
 
 const generalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -67,6 +72,38 @@ const contactLimiter = rateLimit({
 });
 
 app.use(generalLimiter);
+
+function buildSitemapXml() {
+    const base = (process.env.SITE_URL || 'https://portfolio-website-nu-navy-16.vercel.app').replace(/\/+$/, '');
+    const lastmod = new Date().toISOString().slice(0, 10);
+    const escapeXml = (value) => String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+
+    const urls = [
+        { loc: `${base}/`, priority: '1.0' },
+        { loc: `${base}/about`, priority: '0.6' },
+        { loc: `${base}/tutoring`, priority: '0.8' },
+        { loc: `${base}/ai-consulting`, priority: '0.8' },
+        { loc: `${base}/projects`, priority: '0.6' },
+        { loc: `${base}/social-media`, priority: '0.6' },
+        { loc: `${base}/contact`, priority: '0.8' },
+    ];
+
+    const urlEntries = urls.map((entry) => (
+        `  <url>\n    <loc>${escapeXml(entry.loc)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <priority>${entry.priority}</priority>\n  </url>`
+    )).join('\n');
+
+    return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`;
+}
+
+app.get('/sitemap.xml', (req, res) => {
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.send(buildSitemapXml());
+});
 
 app.use(express.static(path.join(__dirname, 'public'), {
     maxAge: '1d',
@@ -143,13 +180,12 @@ app.use((req, res) => {
     res.render('pages/404', {
         site: shared,
         page: pageByKey('contact'),
-        currentPath: req.path,
         year: new Date().getFullYear(),
         notFoundMeta: {
             title: 'Page Not Found | PJ Dailey',
             description: 'The page you requested could not be found.',
             canonical: `${shared.siteUrl}${req.originalUrl}`,
-            ogImage: `${shared.siteUrl}/assets/og-placeholder.svg`,
+            ogImage: `${shared.siteUrl}/assets/og-image.png`,
             structuredData: [],
         },
     });

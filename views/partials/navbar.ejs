@@ -8,14 +8,7 @@
             </span>
         </a>
 
-        <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
-            <% site.navLinks.forEach(function (item) { %>
-                <% const isActive = currentPath === item.href; %>
-                <a href="<%= item.href %>" class="rounded-full px-4 py-2 text-sm font-medium <%= isActive ? 'nav-link-active bg-[color-mix(in_srgb,var(--surface)_88%,transparent)]' : 'text-[var(--text-muted)] hover:text-[var(--text)]' %>">
-                    <%= item.label %>
-                </a>
-            <% }) %>
-        </nav>
+        <%- include('header') %>
 
         <div class="hidden items-center gap-3 lg:flex">
             <a href="/contact" class="btn-secondary">Book a Call</a>
@@ -56,12 +49,13 @@
 
     <div id="mobile-menu" class="hidden border-t border-[var(--border)] lg:hidden">
         <div class="container-shell flex flex-col gap-2 py-4">
-            <% site.navLinks.forEach(function (item) { %>
-                <% const isActive = currentPath === item.href; %>
-                <a href="<%= item.href %>" class="rounded-2xl px-4 py-3 text-sm font-medium <%= isActive ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>">
-                    <%= item.label %>
-                </a>
-            <% }) %>
+            <a href="/" class="rounded-2xl px-4 py-3 text-sm font-medium <%= currentPath === '/' ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>"<%= currentPath === '/' ? ' aria-current="page"' : '' %>>Home</a>
+            <a href="/about" class="rounded-2xl px-4 py-3 text-sm font-medium <%= currentPath === '/about' ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>"<%= currentPath === '/about' ? ' aria-current="page"' : '' %>>About Me</a>
+            <a href="/tutoring" class="rounded-2xl px-4 py-3 text-sm font-medium <%= currentPath === '/tutoring' ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>"<%= currentPath === '/tutoring' ? ' aria-current="page"' : '' %>>Tutoring</a>
+            <a href="/ai-consulting" class="rounded-2xl px-4 py-3 text-sm font-medium <%= currentPath === '/ai-consulting' ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>"<%= currentPath === '/ai-consulting' ? ' aria-current="page"' : '' %>>AI Consulting</a>
+            <a href="/projects" class="rounded-2xl px-4 py-3 text-sm font-medium <%= currentPath === '/projects' ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>"<%= currentPath === '/projects' ? ' aria-current="page"' : '' %>>Projects</a>
+            <a href="/social-media" class="rounded-2xl px-4 py-3 text-sm font-medium <%= currentPath === '/social-media' ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>"<%= currentPath === '/social-media' ? ' aria-current="page"' : '' %>>Social Media</a>
+            <a href="/contact" class="rounded-2xl px-4 py-3 text-sm font-medium <%= currentPath === '/contact' ? 'bg-[color-mix(in_srgb,var(--surface)_90%,transparent)] text-[var(--primary)]' : 'text-[var(--text-muted)] hover:bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] hover:text-[var(--text)]' %>"<%= currentPath === '/contact' ? ' aria-current="page"' : '' %>>Contact</a>
             <a href="/contact" class="btn-primary mt-2 w-full">Book a Call</a>
         </div>
     </div>

@@ -127,12 +127,11 @@ const pageContent = {
         title: 'PJ Dailey | Tutor, AI Consultant, Full-Stack Developer',
         description: 'PJ Dailey helps students master math and computer science while helping businesses design AI workflows that save time and increase output.',
         hero: {
-            kicker: 'TUTOR · AI CONSULTANT · BUILDER',
+            kicker: 'TUTOR | AI CONSULTANT | BUILDER',
             title: 'Better results for students and simpler AI systems for small businesses.',
             description: 'High school and college students get structured math and computer science support that builds confidence, understanding, and stronger academic performance. Small business owners get practical AI systems that reduce repetitive work, save time, and make day-to-day operations easier to run.',
             primaryCta: { label: 'Explore Tutoring', href: '/tutoring' },
             secondaryCta: { label: 'Explore AI Systems', href: '/ai-consulting' },
-            tertiaryCta: { label: 'See Projects', href: '/projects' },
             stats: [
                 { label: 'Focus Areas', value: 'Math & CS tutoring + AI systems' },
                 { label: 'Location', value: 'Pearland, TX' },
@@ -335,7 +334,7 @@ function pageByKey(pageKey) {
     return {
         ...page,
         canonical: siteUrl + page.path,
-        ogImage: `${siteUrl}/assets/og-placeholder.svg`,
+        ogImage: `${siteUrl}/assets/og-image.png`,
         structuredData: buildStructuredData(pageKey),
     };
 }

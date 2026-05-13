@@ -1,0 +1,10 @@
+<%
+const hero = {
+    kicker: page.hero.kicker,
+    title: page.hero.title,
+    description: page.hero.description,
+    actions: [page.hero.primaryCta, page.hero.secondaryCta],
+    stats: page.hero.stats,
+};
+%>
+<%- include('partials/page-hero', { hero: hero }) %>

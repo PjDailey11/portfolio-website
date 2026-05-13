@@ -10,13 +10,20 @@
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
 
+    function setThemeCookie(theme) {
+        document.cookie =
+            'pj-theme=' +
+            encodeURIComponent(theme) +
+            '; Max-Age=31536000; SameSite=Lax; Path=/';
+    }
+
     function setTheme(theme) {
         root.classList.remove('light', 'dark');
         root.classList.add(theme);
         try {
-            localStorage.setItem('pj-theme', theme);
+            setThemeCookie(theme);
         } catch (error) {
-            // Ignore storage failures in private mode or restricted environments.
+            // Ignore cookie failures in restricted environments.
         }
     }
 
@@ -40,4 +47,15 @@
             });
         });
     }
+
+    document.querySelectorAll('[data-contact-email]').forEach((anchor) => {
+        const u = anchor.getAttribute('data-u');
+        const d = anchor.getAttribute('data-d');
+        const tld = anchor.getAttribute('data-tld');
+        if (!u || !d || !tld) return;
+        const addr = u + '@' + d + '.' + tld;
+        anchor.setAttribute('href', 'mailto:' + addr);
+        anchor.textContent = addr;
+        anchor.removeAttribute('aria-label');
+    });
 })();
