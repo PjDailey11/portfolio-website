@@ -1,0 +1,28 @@
+<%
+const tileVariant = typeof variant !== 'undefined' ? variant : 'logo';
+const gridClass = tileVariant === 'profile'
+    ? 'grid gap-6 md:grid-cols-2'
+    : 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3';
+const imageFrameClass = tileVariant === 'profile'
+    ? 'aspect-[16/9] rounded-[1.25rem]'
+    : 'aspect-[4/3] rounded-[1.25rem]';
+const frameToneClass = tileVariant === 'profile'
+    ? 'bg-[color-mix(in_srgb,var(--surface)_76%,transparent)]'
+    : 'bg-white';
+const imageClass = tileVariant === 'profile'
+    ? 'h-full w-full rounded-[1.25rem] object-cover'
+    : 'h-full w-full rounded-[1.25rem] object-contain p-4';
+%>
+
+<div class="<%= gridClass %>">
+    <% items.forEach(function (item) { %>
+        <article class="surface-card-strong overflow-hidden p-3">
+            <div class="<%= imageFrameClass %> <%= frameToneClass %> flex items-center justify-center overflow-hidden">
+                <img src="<%= item.src %>" alt="<%= item.alt %>" class="<%= imageClass %>" loading="lazy">
+            </div>
+            <% if (item.label) { %>
+                <p class="mt-3 text-sm font-semibold text-[var(--text)]"><%= item.label %></p>
+            <% } %>
+        </article>
+    <% }) %>
+</div>

@@ -44,6 +44,19 @@
 
 <section class="container-shell mt-16">
     <%- include('../partials/section-header', {
+        kicker: 'Automation Tools',
+        title: 'Platforms I can connect into practical workflows',
+        body: 'These tools are useful for connecting forms, spreadsheets, CRMs, content pipelines, and internal processes without adding unnecessary complexity.',
+        centered: false,
+    }) %>
+
+    <div class="mt-6">
+        <%- include('../partials/image-tile-grid', { items: page.tools, variant: 'logo' }) %>
+    </div>
+</section>
+
+<section class="container-shell mt-16">
+    <%- include('../partials/section-header', {
         kicker: 'Example Workflows',
         title: 'Workflow ideas I can help scope or build',
         body: 'These examples show the kind of repeatable, leverage-heavy systems I like to implement.',

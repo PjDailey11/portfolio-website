@@ -38,6 +38,19 @@
     </div>
 </section>
 
+<section class="container-shell mt-16">
+    <%- include('../partials/section-header', {
+        kicker: 'Profile Snapshots',
+        title: 'Current social profiles and channel presence',
+        body: 'Screenshots from the active platforms supporting the creator side of the portfolio.',
+        centered: false,
+    }) %>
+
+    <div class="mt-6">
+        <%- include('../partials/image-tile-grid', { items: page.profileImages, variant: 'profile' }) %>
+    </div>
+</section>
+
 <%- include('../partials/cta-banner', {
     kicker: 'Creator CTA',
     title: 'Work With Me',

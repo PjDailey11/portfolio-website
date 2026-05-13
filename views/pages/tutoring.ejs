@@ -30,6 +30,10 @@
                 <span class="chip"><%= subject %></span>
             <% }) %>
         </div>
+
+        <div class="mt-8">
+            <%- include('../partials/image-tile-grid', { items: page.subjectImages, variant: 'logo' }) %>
+        </div>
     </div>
 </section>
 
@@ -66,6 +70,14 @@
                             <li><%= bullet %></li>
                         <% }) %>
                     </ul>
+                <% } %>
+                <% if (suite.title === 'AI Scholars Suite' && page.aiToolImages && page.aiToolImages.length) { %>
+                    <div class="mt-6">
+                        <p class="eyebrow">AI Tutoring Tools</p>
+                        <div class="mt-4">
+                            <%- include('../partials/image-tile-grid', { items: page.aiToolImages, variant: 'logo' }) %>
+                        </div>
+                    </div>
                 <% } %>
 
                 <div class="mt-6 space-y-6">
