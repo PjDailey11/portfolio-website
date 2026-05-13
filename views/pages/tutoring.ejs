@@ -49,93 +49,20 @@
 <section class="container-shell mt-16">
     <%- include('../partials/section-header', {
         kicker: 'Pricing',
-        title: 'Tutoring suites',
-        body: page.pricingIntro,
+        title: 'Tutoring packages',
+        body: 'Pricing is separated by difficulty level so families know what kind of support they are getting.',
         centered: false,
     }) %>
 
-    <div class="mt-6 grid gap-6 lg:grid-cols-2">
-        <% page.pricingSuites.forEach(function (suite) { %>
-            <article class="surface-card p-6 sm:p-8">
-                <p class="eyebrow"><%= suite.title %></p>
-                <h3 class="mt-3 text-2xl font-semibold tracking-tight"><%= suite.subtitle %></h3>
-                <div class="mt-6 space-y-4">
-                    <% suite.sections.forEach(function (section) { %>
-                        <section class="rounded-[1.5rem] border px-4 py-4" style="border-color: var(--border); background: color-mix(in srgb, var(--surface-strong) 78%, transparent);">
-                            <h4 class="text-sm font-semibold uppercase tracking-[0.18em]" style="color: var(--text);"><%= section.title %></h4>
-
-                            <% if (section.kind === 'bullets') { %>
-                                <ul class="list-check mt-4 space-y-3 text-sm leading-7" role="list" style="color: var(--text-muted);">
-                                    <% section.items.forEach(function (item) { %>
-                                        <li><%= item %></li>
-                                    <% }) %>
-                                </ul>
-
-                                <% if (section.footer) { %>
-                                    <div class="mt-4 flex items-start justify-between gap-4 border-t pt-4" style="border-color: var(--border);">
-                                        <p class="text-sm" style="color: var(--text-muted);"><%= section.footer.label %></p>
-                                        <p class="text-right text-sm font-semibold" style="color: var(--text);"><%= section.footer.price %></p>
-                                    </div>
-                                <% } %>
-                            <% } else if (section.kind === 'comparison') { %>
-                                <div class="mt-4 overflow-hidden rounded-[1.25rem] border" style="border-color: var(--border);">
-                                    <table class="w-full text-sm">
-                                        <caption class="sr-only"><%= section.title %> pricing</caption>
-                                        <thead style="background: color-mix(in srgb, var(--surface) 88%, transparent);">
-                                            <tr>
-                                                <th scope="col" class="px-4 py-3 text-left font-medium" style="color: var(--text);">Service</th>
-                                                <% section.columns.forEach(function (column) { %>
-                                                    <th scope="col" class="px-4 py-3 text-right font-medium" style="color: var(--text);"><%= column %></th>
-                                                <% }) %>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% section.rows.forEach(function (row) { %>
-                                                <tr style="border-top: 1px solid var(--border);">
-                                                    <th scope="row" class="px-4 py-3 text-left font-medium" style="color: var(--text-muted);"><%= row.label %></th>
-                                                    <% row.values.forEach(function (value) { %>
-                                                        <td class="px-4 py-3 text-right font-semibold" style="color: var(--text);"><%= value %></td>
-                                                    <% }) %>
-                                                </tr>
-                                            <% }) %>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            <% } else { %>
-                                <dl class="mt-4 space-y-3">
-                                    <% section.items.forEach(function (item) { %>
-                                        <div class="flex items-start justify-between gap-4">
-                                            <dt class="text-sm" style="color: var(--text-muted);"><%= item.label %></dt>
-                                            <dd class="text-right text-sm font-semibold" style="color: var(--text);"><%= item.price %></dd>
-                                        </div>
-                                    <% }) %>
-                                </dl>
-                            <% } %>
-
-                            <% if (section.supportingLine) { %>
-                                <p class="body-sm mt-4"><%= section.supportingLine %></p>
-                            <% } %>
-                        </section>
-                    <% }) %>
-                </div>
+    <div class="site-grid mt-6">
+        <% page.pricing.forEach(function (tier) { %>
+            <article class="surface-card p-6">
+                <p class="eyebrow"><%= tier.title %></p>
+                <h3 class="mt-4 text-3xl font-semibold tracking-tight"><%= tier.price %></h3>
+                <p class="body-sm mt-4"><%= tier.description %></p>
             </article>
         <% }) %>
     </div>
-
-    <article class="surface-card mt-6 p-6 sm:p-8">
-        <p class="eyebrow">Optional Add-On Services</p>
-        <h3 class="mt-3 text-2xl font-semibold tracking-tight">Add extra support to any suite</h3>
-        <p class="body-sm mt-4">These services can be paired with any tutoring suite.</p>
-
-        <dl class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            <% page.addOns.forEach(function (addOn) { %>
-                <div class="rounded-[1.5rem] border px-4 py-4" style="border-color: var(--border); background: color-mix(in srgb, var(--surface-strong) 78%, transparent);">
-                    <dt class="text-sm font-medium" style="color: var(--text);"><%= addOn.label %></dt>
-                    <dd class="mt-2 text-lg font-semibold tracking-tight"><%= addOn.price %></dd>
-                </div>
-            <% }) %>
-        </dl>
-    </article>
 </section>
 
 <div class="fixed inset-x-4 bottom-4 z-30 lg:hidden">

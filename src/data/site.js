@@ -127,7 +127,7 @@ const pageContent = {
         title: 'PJ Dailey | Tutor, AI Consultant, Full-Stack Developer',
         description: 'PJ Dailey helps students master math and computer science while helping businesses design AI workflows that save time and increase output.',
         hero: {
-            kicker: 'TUTOR | AI CONSULTANT | BUILDER',
+            kicker: 'TUTOR · AI CONSULTANT · BUILDER',
             title: 'Better results for students and simpler AI systems for small businesses.',
             description: 'High school and college students get structured math and computer science support that builds confidence, understanding, and stronger academic performance. Small business owners get practical AI systems that reduce repetitive work, save time, and make day-to-day operations easier to run.',
             primaryCta: { label: 'Explore Tutoring', href: '/tutoring' },
@@ -175,203 +175,48 @@ const pageContent = {
     about: {
         path: '/about',
         title: 'About Me | PJ Dailey',
-        description: 'About PJ Dailey: Pearland, TX tutor and AI consultant focused on clear teaching, practical systems, and honest technical execution.',
-        bio: 'I am PJ Dailey, a tutor and AI consultant based in Pearland, TX. I help students understand difficult math and computer science material through structured, concept-first sessions, and I help small teams build practical AI workflows they can actually use. The common thread is simple: explain things clearly, build around real needs, and keep the work grounded.',
-        education: [
-            'Undergraduate at St. Edward\'s University.',
-            'Relevant study includes computer science foundations such as data structures, algorithms, systems, and applied AI tooling.',
+        description: 'About PJ Dailey: undergraduate student, tutor, AI consultant, full-stack developer, and content creator.',
+        bio: 'Hi, I am PJ Dailey — a Math and CS tutor and AI consultant based in the Houston area. I help students master hard subjects through structured, concept-first sessions, and I help businesses implement practical AI workflows that reduce repetitive work and improve output. On the side, I create content on AI tools, productivity systems, and coding.',
+        accomplishments: [
+            'Runs a tutoring business for grades 9-12.',
+            'Tutors advanced subjects: AI workflows, SAT/ACT, Algebra through Calculus II, Linear Algebra, Data Structures, Algorithms, and LeetCode.',
+            'Built multiple full-stack Express / EJS / SQLite apps.',
+            'Experienced in AJAX, DOM manipulation, deployment, and C programming.',
+            'Strong academic problem-solving in linear algebra, logic proofs, and number theory.',
+            'Growing social media presence across TikTok, Instagram, and YouTube.',
         ],
-        athletics: 'I was also a Division II baseball athlete at St. Edward\'s University. That background still shapes how I work: prepared, direct, coachable, and consistent over time.',
+        accolades: [
+            'Trusted by dozens of students and parents.',
+            'Known for clear, step-by-step explanations.',
+            'Recognized for building efficient AI workflows for students and small businesses.',
+        ],
+        education: [
+            'Undergraduate student at St. Edward\'s University.',
+            'Coursework includes COSC-2329, algorithms, data structures, systems, and AI tools.',
+        ],
+        athletics: 'Former college baseball athlete.',
     },
     tutoring: {
         path: '/tutoring',
         title: 'Tutoring | PJ Dailey',
-        description: 'Suite-based tutoring and coaching for math, computer science, test prep, AI workflows, and long-term mentorship.',
+        description: 'Tutoring services for math, computer science, test prep, and AI workflows for students.',
         subjects: [
             'Algebra I & II',
             'Geometry',
             'Pre-Calculus',
             'Calculus I & II',
-            'AP Calculus AB/BC',
-            'AP Statistics',
-            'SAT / ACT prep',
-            'Python',
-            'Java',
-            'C',
+            'Linear Algebra',
+            'SAT Math',
+            'ACT Math',
+            'Computer Science (Python, JavaScript, C)',
             'Data Structures & Algorithms',
-            'Web development',
-            'Databases',
-            'Project help',
-            'AI study systems',
-            'Agentic workflows',
+            'LeetCode prep',
+            'AI workflows for students',
         ],
-        pricingIntro: 'Choose the suite that best matches the support you need, from math mastery and test prep to technical project coaching, mentorship, and student AI systems.',
-        pricingSuites: [
-            {
-                title: 'Scholars Suite',
-                subtitle: 'High School & AP Math Mastery',
-                sections: [
-                    {
-                        title: '1-on-1 Sessions',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual', price: '$80/hr' },
-                            { label: 'In-Person', price: '$100/hr' },
-                        ],
-                    },
-                    {
-                        title: 'Small Group (2-4 students)',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual', price: '$50/student/hr' },
-                            { label: 'In-Person', price: '$60/student/hr' },
-                        ],
-                    },
-                ],
-            },
-            {
-                title: 'Performance Suite',
-                subtitle: 'SAT/ACT Test Prep',
-                sections: [
-                    {
-                        title: '1-on-1 Coaching',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual', price: '$120/hr' },
-                            { label: 'In-Person', price: '$140/hr' },
-                        ],
-                    },
-                    {
-                        title: 'Small Group (2-4 students)',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual', price: '$70/student/hr' },
-                            { label: 'In-Person', price: '$80/student/hr' },
-                        ],
-                    },
-                    {
-                        title: 'Packages',
-                        kind: 'rates',
-                        items: [
-                            { label: '10-Hour Virtual Group Package', price: '$600/student' },
-                            { label: '10-Hour In-Person Group Package', price: '$700/student' },
-                            { label: '10-Hour 1-on-1 Package', price: '$1,100' },
-                            { label: '20-Hour 1-on-1 Package', price: '$2,000' },
-                        ],
-                    },
-                ],
-            },
-            {
-                title: 'Engineering Suite',
-                subtitle: 'Computer Science, Coding, Algorithms, Projects',
-                sections: [
-                    {
-                        title: '1-on-1 Sessions',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual', price: '$100-$150/hr' },
-                            { label: 'In-Person', price: '$120-$150/hr' },
-                        ],
-                    },
-                    {
-                        title: 'Small Group (2-4 students)',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual', price: '$60/student/hr' },
-                            { label: 'In-Person', price: '$75/student/hr' },
-                        ],
-                    },
-                    {
-                        title: 'Project-Based Support',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Debugging', price: '$150/hr' },
-                            { label: 'Full Project Guidance', price: '$300-$600/project' },
-                        ],
-                    },
-                ],
-            },
-            {
-                title: 'Executive Mentorship Suite',
-                subtitle: 'A 6-Week Elite Academic + Technical Accelerator',
-                sections: [
-                    {
-                        title: 'Includes',
-                        kind: 'bullets',
-                        items: [
-                            'Weekly 1-on-1 coaching (virtual or in-person)',
-                            'Unlimited Q&A + assignment help',
-                            'AI-powered study system (custom-built)',
-                            'Personalized academic + career roadmap',
-                            'College prep + essay guidance',
-                            'Project coaching (coding, research, AI workflows)',
-                            'Parent progress reports',
-                            'Priority scheduling',
-                            'Access to your private resource library',
-                        ],
-                    },
-                    {
-                        title: 'Flat Rate (Updated)',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Program', price: '$3,000 for 6 weeks' },
-                            { label: 'Format', price: 'Virtual or in-person - same price' },
-                            { label: 'Positioning', price: 'No ranges, no variability, clean and premium' },
-                        ],
-                        supportingLine: 'This is now a flagship program with a clear, high-ticket price.',
-                    },
-                ],
-            },
-            {
-                title: 'AI Scholars Suite',
-                subtitle: 'Student AI Tutoring - Aggressive Pricing',
-                sections: [
-                    {
-                        title: 'Student AI Tutoring',
-                        kind: 'comparison',
-                        columns: ['Virtual', 'In-Person'],
-                        rows: [
-                            { label: 'AI Agent Setup (Student Version)', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI Workflow Building (Student Version)', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI for Data Extrapolation & Analysis', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI Coding Tools & AI Builders', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI for Research, Writing, Math, and Academics', values: ['$200/hr', '$250/hr'] },
-                        ],
-                    },
-                    {
-                        title: 'Small Group AI Tutoring (2-4 students)',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual Group', price: '$100/student/hr' },
-                            { label: 'In-Person Group', price: '$125/student/hr' },
-                        ],
-                    },
-                    {
-                        title: 'AI Accelerator (4 Weeks)',
-                        kind: 'bullets',
-                        items: [
-                            'Weekly 1-on-1 AI tutoring',
-                            'Personalized AI Learning Roadmap',
-                            'Unlimited Q&A',
-                        ],
-                        footer: { label: 'Price', price: '$1,000 flat (virtual or in-person)' },
-                    },
-                    {
-                        title: 'Student AI Project Coaching',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual or In-Person', price: '$400/hr' },
-                        ],
-                    },
-                ],
-            },
-        ],
-        addOns: [
-            { label: 'Homework Review', price: '$40' },
-            { label: 'Parent Progress Report', price: '$50' },
-            { label: 'Priority Scheduling', price: '$30/month' },
-            { label: 'Custom Study Plan', price: '$75' },
-            { label: 'AI-Powered Study System', price: '$150' },
+        pricing: [
+            { title: 'Standard tutoring', price: '$60/hr', description: 'Core high-school and college-prep support with structured walkthroughs and homework help.' },
+            { title: 'Advanced CS / AI / college math', price: '$75/hr', description: 'Deeper support for technical coursework, algorithm prep, and AI workflow instruction.' },
+            { title: 'Intensive exam prep', price: '$90/hr', description: 'Focused SAT / ACT prep sessions with higher-intensity pacing and target-area review.' },
         ],
     },
     aiConsulting: {
@@ -410,57 +255,10 @@ const pageContent = {
                 description: 'Set up workflows that gather sources, summarize findings, extract action items, and package outputs into decision-ready briefs for faster analysis.',
             },
         ],
-        pricingTitle: 'AI Innovation Suite',
-        pricingIntro: 'Consulting-level AI services for strategy, agentic workflows, and custom automation systems.',
-        consultingRates: [
-            {
-                title: 'AI Coaching (Consulting)',
-                rates: [
-                    { label: 'Virtual', price: '$200/hr' },
-                    { label: 'In-Person', price: '$250/hr' },
-                ],
-            },
-            {
-                title: 'Agentic Workflow Design',
-                rates: [
-                    { label: 'Virtual', price: '$500/hr' },
-                    { label: 'In-Person', price: '$600/hr' },
-                ],
-            },
-            {
-                title: 'Claw Agent Setup',
-                rates: [
-                    { label: 'Virtual', price: '$1,000/hr' },
-                    { label: 'In-Person', price: '$1,200/hr' },
-                ],
-            },
-        ],
-        buildoutTitle: 'Custom AI System Buildout (Consulting)',
-        buildoutTiers: [
-            {
-                title: 'Starter Automation System',
-                price: '$1,500-$2,500',
-                bullets: [
-                    'Single-agent or simple workflow',
-                ],
-                examples: 'study system, note pipeline, simple retrieval agent',
-            },
-            {
-                title: 'Professional Automation System',
-                price: '$3,000-$5,000',
-                bullets: [
-                    'Multi-step workflows or multi-tool integrations',
-                ],
-                examples: 'multi-agent workflow, data pipelines, dashboards',
-            },
-            {
-                title: 'Enterprise Automation System',
-                price: '$7,500-$12,000+',
-                bullets: [
-                    'Advanced, multi-agent, business-grade systems',
-                ],
-                examples: 'full automation suite, RAG systems, multi-agent orchestration',
-            },
+        pricing: [
+            { title: 'Hourly consulting', price: '$100/hr', description: 'For strategy, audits, and live workflow design sessions.' },
+            { title: 'Workflow buildout', price: '$350', description: 'For a scoped workflow delivered as a practical repeatable system.' },
+            { title: 'Full system setup', price: '$750', description: 'For end-to-end implementation of a broader AI operations stack.' },
         ],
     },
     projectsPage: {
