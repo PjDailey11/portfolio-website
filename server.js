@@ -12,11 +12,33 @@ const { shared, pageByKey } = require('./src/data/site');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Vercel sets X-Forwarded-For. express-rate-limit v7 requires trust proxy not be
-// the default false, but it also rejects trust proxy === true (too permissive).
-// A small hop count satisfies both checks.
 if (process.env.VERCEL) {
     app.set('trust proxy', 1);
+}
+
+/**
+ * express-rate-limit's default keyGenerator validates request.ip + trust proxy
+ * against X-Forwarded-For. On Vercel, req.ip is often unset until trust proxy
+ * is correct, and v7's validations can still throw — so we key explicitly from
+ * proxy headers and bypass those checks entirely.
+ */
+function rateLimitClientKey(req) {
+    const xff = req.headers['x-forwarded-for'];
+    if (typeof xff === 'string' && xff.trim()) {
+        return xff.split(',')[0].trim();
+    }
+    const realIp = req.headers['x-real-ip'];
+    if (typeof realIp === 'string' && realIp.trim()) {
+        return realIp.trim();
+    }
+    if (req.ip) {
+        return String(req.ip);
+    }
+    const socketIp = req.socket && req.socket.remoteAddress;
+    if (socketIp) {
+        return String(socketIp);
+    }
+    return 'local-unknown';
 }
 
 app.set('view engine', 'ejs');
@@ -69,6 +91,7 @@ const generalLimiter = rateLimit({
     },
     standardHeaders: true,
     legacyHeaders: false,
+    keyGenerator: (req) => rateLimitClientKey(req),
 });
 
 const contactLimiter = rateLimit({
@@ -79,6 +102,7 @@ const contactLimiter = rateLimit({
     },
     standardHeaders: true,
     legacyHeaders: false,
+    keyGenerator: (req) => rateLimitClientKey(req),
 });
 
 app.use(generalLimiter);
