@@ -48,6 +48,9 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 app.use((req, res, next) => {
     res.locals.currentPath = req.path;
+    if (process.env.VERCEL_GIT_COMMIT_SHA) {
+        res.setHeader('X-Deployment-Git-SHA', process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7));
+    }
     next();
 });
 
@@ -102,8 +105,15 @@ function buildSitemapXml() {
 
 app.get('/sitemap.xml', (req, res) => {
     res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=300, s-maxage=300');
     res.send(buildSitemapXml());
 });
+
+// Shorter cache for built CSS/JS so deploys are visible without a hard refresh.
+app.use('/assets', express.static(path.join(__dirname, 'public', 'assets'), {
+    maxAge: '5m',
+    etag: true,
+}));
 
 app.use(express.static(path.join(__dirname, 'public'), {
     maxAge: '1d',
@@ -177,6 +187,7 @@ app.use(pageRouter);
 
 app.use((req, res) => {
     res.status(404);
+    res.setHeader('Cache-Control', 'private, no-cache, must-revalidate');
     res.render('pages/404', {
         site: shared,
         page: pageByKey('contact'),

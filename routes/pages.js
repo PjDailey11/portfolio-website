@@ -4,6 +4,7 @@ const { shared, projects, pageByKey } = require('../src/data/site');
 const router = express.Router();
 
 function renderPage(req, res, view, pageKey, extra = {}) {
+    res.setHeader('Cache-Control', 'private, no-cache, must-revalidate');
     res.render(`pages/${view}`, {
         site: shared,
         page: pageByKey(pageKey),
