@@ -48,14 +48,4 @@
         });
     }
 
-    document.querySelectorAll('[data-contact-email]').forEach((anchor) => {
-        const u = anchor.getAttribute('data-u');
-        const d = anchor.getAttribute('data-d');
-        const tld = anchor.getAttribute('data-tld');
-        if (!u || !d || !tld) return;
-        const addr = u + '@' + d + '.' + tld;
-        anchor.setAttribute('href', 'mailto:' + addr);
-        anchor.textContent = addr;
-        anchor.removeAttribute('aria-label');
-    });
 })();

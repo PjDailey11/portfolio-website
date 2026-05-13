@@ -61,6 +61,9 @@
             <article class="surface-card p-6 sm:p-8">
                 <p class="eyebrow"><%= suite.title %></p>
                 <h3 class="mt-3 text-2xl font-semibold tracking-tight"><%= suite.subtitle %></h3>
+                <% if (suite.highlight) { %>
+                    <p class="mt-4 rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] px-4 py-3 text-base font-bold text-[var(--text)]"><%= suite.highlight %></p>
+                <% } %>
                 <% if (suite.description) { %>
                     <p class="body-sm mt-4"><%= suite.description %></p>
                 <% } %>

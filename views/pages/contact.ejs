@@ -4,15 +4,10 @@
     hero: {
         kicker: 'Contact',
         title: 'Get in touch - tutoring, AI consulting, or anything else.',
-        description: 'Use the form or the contact details below to start a conversation about tutoring, AI consulting, creator work, or technical projects.',
+        description: 'Use the secure form below to start a conversation about tutoring, AI consulting, creator partnerships, or technical projects.',
         actions: [
             { label: 'Go to Form', href: '#contact-form' },
             { label: 'Back to Home', href: '/' },
-        ],
-        stats: [
-            { label: 'Location', value: site.contact.location },
-            { label: 'Phone', value: site.contact.phoneLabel },
-            { label: 'Email', value: site.contact.emailLabel },
         ],
     },
 }) %>
@@ -21,6 +16,7 @@
     <div class="space-y-6">
         <div class="surface-card p-6 sm:p-8">
             <p class="eyebrow">Connect</p>
+            <p class="body-sm mt-3">For privacy, direct contact details are not published. The form is the best way to reach me.</p>
             <div class="mt-5">
                 <%- include('../partials/social-links', { links: site.socialLinks.filter(function (item) { return ['TikTok', 'Instagram', 'YouTube', 'LinkedIn'].includes(item.label); }) }) %>
             </div>

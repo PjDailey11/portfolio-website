@@ -41,7 +41,8 @@ const shared = {
     siteUrl,
     brandName: 'PJ Dailey',
     brandStatement: 'PJ Dailey - Math and CS tutor, AI consultant, and builder for students and small businesses.',
-    locationLabel: 'Pearland, TX',
+    brandSubtitle: 'Tutor | AI Consultant | Content Creator',
+    locationLabel: 'Remote and local availability',
     navLinks,
     socialLinks,
     footerLinks: [
@@ -52,20 +53,21 @@ const shared = {
         {
             title: 'Connect',
             links: [
-                { href: '/contact', label: 'Book a Call' },
+                { href: '/contact', label: 'Contact Form' },
                 { href: 'https://github.com/PjDailey11', label: 'GitHub' },
-                { href: 'mailto:pjdailey13@gmail.com', label: 'pjdailey13@gmail.com' },
             ],
         },
     ],
     contact: {
-        phoneLabel: '281-961-9051',
-        phoneHref: 'tel:2819619051',
-        emailLabel: 'pjdailey13@gmail.com',
-        emailHref: 'mailto:pjdailey13@gmail.com',
-        location: 'Pearland, TX',
-        bookingLabel: 'Booking link coming soon',
-        bookingHref: '#booking-placeholder',
+        methodLabel: 'Contact form',
+        responseLabel: 'Replies after form review',
+        availability: 'Remote and local availability',
+        bookingHref: '#contact-form',
+    },
+    githubBrowseVisual: {
+        label: 'GitHub',
+        src: '/assets/logos/github-logo.jpg',
+        alt: 'GitHub logo',
     },
 };
 
@@ -134,7 +136,7 @@ const pageContent = {
             secondaryCta: { label: 'Explore AI Systems', href: '/ai-consulting' },
             stats: [
                 { label: 'Focus Areas', value: 'Math & CS tutoring + AI systems' },
-                { label: 'Location', value: 'Pearland, TX' },
+                { label: 'Availability', value: 'Remote and local' },
                 { label: 'Audience', value: 'High school/college students + small business owners' },
             ],
         },
@@ -174,8 +176,8 @@ const pageContent = {
     about: {
         path: '/about',
         title: 'About Me | PJ Dailey',
-        description: 'About PJ Dailey: Pearland, TX tutor and AI consultant focused on clear teaching, practical systems, and honest technical execution.',
-        bio: 'I am PJ Dailey, a tutor and AI consultant based in Pearland, TX. I help students understand difficult math and computer science material through structured, concept-first sessions, and I help small teams build practical AI workflows they can actually use. The common thread is simple: explain things clearly, build around real needs, and keep the work grounded.',
+        description: 'About PJ Dailey: tutor, AI consultant, and content creator focused on clear teaching, practical systems, and honest technical execution.',
+        bio: 'I help students understand difficult math and computer science material through structured, concept-first sessions, and I help small teams build practical AI workflows they can actually use. I also create content around college sports, lifestyle, technical learning, and creator partnerships.',
         education: [
             'Undergraduate at St. Edward\'s University.',
             'Relevant study includes computer science foundations such as data structures, algorithms, systems, and applied AI tooling.',
@@ -275,11 +277,12 @@ const pageContent = {
             },
             {
                 title: 'Performance Suite',
-                subtitle: 'SAT/ACT Test Prep',
-                description: 'SAT/ACT math prep focused on diagnosing weak areas, improving speed, and building a repeatable test-taking process.',
+                subtitle: 'PSAT, SAT & ACT Test Prep',
+                highlight: 'Also available: PSAT prep',
+                description: 'PSAT, SAT, and ACT math prep focused on diagnosing weak areas, improving speed, and building a repeatable test-taking process.',
                 bullets: [
                     'Timed practice with review that explains why answers are right or wrong.',
-                    'Concept review, calculator strategy, and pacing work for math sections.',
+                    'Concept review, calculator strategy, and pacing work for PSAT, SAT, and ACT math sections.',
                     'Mistake analysis and weekly study plans so practice turns into measurable progress.',
                 ],
                 sections: [
@@ -472,24 +475,40 @@ const pageContent = {
         industries: ['Education', 'Small businesses', 'Creators', 'Startups', 'Students'],
         workflows: [
             {
-                title: 'Automated study set generation',
-                description: 'Turn notes, lecture recordings, and textbook sections into organized practice sets, flashcards, and review guides so students can study from cleaner material faster.',
+                title: 'Lead intake and qualification',
+                description: 'Route new inquiries from forms, DMs, or email into a structured pipeline with qualification notes and next-step prompts.',
             },
             {
-                title: 'Social media content pipelines',
-                description: 'Build repeatable systems for idea capture, script drafting, clip selection, and repurposing so creators spend less time juggling tools and more time publishing.',
+                title: 'Client onboarding automation',
+                description: 'Turn signed clients into organized tasks, folders, welcome messages, intake forms, and kickoff reminders.',
             },
             {
-                title: 'Lead-gen automation',
-                description: 'Connect forms, CRM intake, qualification rules, and follow-up messaging so new leads are sorted quickly and handoffs stop depending on manual copy-paste.',
+                title: 'Invoice and payment follow-up',
+                description: 'Track unpaid invoices, draft reminders, and keep payment follow-up consistent without manually checking every account.',
             },
             {
-                title: 'AI-powered tutoring systems',
-                description: 'Design support flows for lesson planning, homework breakdowns, practice generation, and student follow-up that keep the teaching process personal while removing admin drag.',
+                title: 'CRM cleanup and enrichment',
+                description: 'Standardize records, fill missing context, tag priority contacts, and keep sales data easier to search and act on.',
             },
             {
-                title: 'Research automation',
-                description: 'Set up workflows that gather sources, summarize findings, extract action items, and package outputs into decision-ready briefs for faster analysis.',
+                title: 'Social content production pipeline',
+                description: 'Move ideas through scripting, approval, publishing, and repurposing so teams can publish consistently across platforms.',
+            },
+            {
+                title: 'Customer support triage',
+                description: 'Summarize tickets, detect urgency, suggest replies, and route issues to the right person faster.',
+            },
+            {
+                title: 'Internal SOP and knowledge-base assistant',
+                description: 'Make internal docs searchable so team members can find policies, steps, and repeatable answers quickly.',
+            },
+            {
+                title: 'Sales proposal drafting workflow',
+                description: 'Turn discovery notes into scoped proposal drafts, pricing outlines, and follow-up emails with less blank-page friction.',
+            },
+            {
+                title: 'Operations reporting dashboard',
+                description: 'Collect updates from recurring tools and summarize pipeline, content, finance, or support metrics in one place.',
             },
         ],
         pricingTitle: 'AI Innovation Suite',
@@ -517,7 +536,12 @@ const pageContent = {
                 ],
             },
         ],
-        buildoutTitle: 'Custom AI System Buildout (Consulting)',
+        buildoutTitle: 'Custom AI System Buildout',
+        buildoutIntroBullets: [
+            'Scoped automation systems designed around one real business process.',
+            'Integrations across forms, CRMs, spreadsheets, content tools, dashboards, and AI assistants.',
+            'Deliverables focused on maintainable workflows your team can understand and keep using.',
+        ],
         buildoutTiers: [
             {
                 title: 'Starter Automation System',
@@ -553,8 +577,9 @@ const pageContent = {
     socialMedia: {
         path: '/social-media',
         title: 'Social Media | PJ Dailey',
-        description: 'Social media portfolio for AI education, productivity workflows, coding content, and tech tutorials.',
-        platforms: ['TikTok', 'Instagram', 'YouTube'],
+        description: 'Creator portfolio for NIL, brand deals, affiliate marketing, collaborations, college sports lifestyle, AI education, productivity, and coding content.',
+        platforms: ['TikTok', 'Instagram', 'YouTube', 'LinkedIn', 'X'],
+        partnershipCategories: ['NIL', 'Brand Deals', 'Affiliate Marketing', 'Collaborations', 'College Sports', 'Lifestyle Content'],
         profileImages: [
             {
                 label: 'X profile',
@@ -584,20 +609,28 @@ const pageContent = {
         ],
         contentTypes: [
             {
-                title: 'AI education',
-                description: 'Breakdowns of AI tools, prompting strategies, and automation systems explained for people who want to use them practically — not just understand them theoretically.',
+                title: 'College sports lifestyle',
+                description: 'Content around student-athlete life, training, campus routines, and the day-to-day balance of college sports and academics.',
             },
             {
-                title: 'Tech tutorials',
-                description: 'Step-by-step walkthroughs of developer tools, VS Code setups, terminal basics, and productivity software aimed at students and early-career builders.',
+                title: 'NIL and brand partnerships',
+                description: 'Partnership-ready content that can connect products, services, and campaigns to a student-athlete and creator audience.',
             },
             {
-                title: 'Productivity workflows',
-                description: 'Systems for managing tasks, reducing context-switching, and building a structure for deep work using tools like Notion, calendar blocking, and AI assistants.',
+                title: 'Affiliate marketing',
+                description: 'Practical product mentions, demos, and recommendations built around tools, lifestyle, sports, education, and creator workflows.',
             },
             {
-                title: 'Coding content',
-                description: 'Beginner-friendly programming explanations covering Python, JavaScript, data structures, and problem-solving patterns — built from first principles.',
+                title: 'Collaborations',
+                description: 'Flexible creator collaborations for campaigns, platform growth, educational content, and cross-audience storytelling.',
+            },
+            {
+                title: 'AI and productivity education',
+                description: 'Breakdowns of AI tools, study systems, productivity workflows, and automation ideas explained in practical language.',
+            },
+            {
+                title: 'Coding and tech tutorials',
+                description: 'Beginner-friendly programming and developer-tool content covering coding fundamentals, AI builders, and technical workflows.',
             },
         ],
     },
@@ -615,11 +648,6 @@ function buildStructuredData(pageKey) {
             '@type': 'Person',
             name: shared.brandName,
             description: shared.brandStatement,
-            address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Pearland',
-                addressRegion: 'TX',
-            },
             sameAs: socialLinks.map((item) => item.href),
         },
         {

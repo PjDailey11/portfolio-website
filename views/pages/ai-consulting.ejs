@@ -7,7 +7,6 @@
         description: 'I design workflows that cut repetitive work, improve output quality, and make AI feel usable instead of overwhelming.',
         actions: [
             { label: 'Book a Consultation', href: '/contact' },
-            { label: 'See Example Projects', href: '/projects' },
         ],
         stats: [
             { label: 'Best fit', value: 'Education, small business, creators, startups' },
@@ -74,27 +73,29 @@
 </section>
 
 <section class="container-shell mt-16">
-    <%- include('../partials/section-header', {
-        kicker: 'Pricing',
-        title: page.pricingTitle,
-        body: page.pricingIntro,
-        centered: false,
-    }) %>
+    <div class="surface-card p-6 sm:p-8">
+        <%- include('../partials/section-header', {
+            kicker: 'Pricing',
+            title: page.pricingTitle,
+            body: page.pricingIntro,
+            centered: false,
+        }) %>
 
-    <div class="site-grid mt-6">
-        <% page.consultingRates.forEach(function (tier) { %>
-            <article class="surface-card p-6">
-                <p class="eyebrow"><%= tier.title %></p>
-                <dl class="mt-5 space-y-3">
-                    <% tier.rates.forEach(function (rate) { %>
-                        <div class="flex flex-wrap items-baseline justify-between gap-3 border-t border-[var(--border)] pt-3">
-                            <dt class="body-sm"><%= rate.label %></dt>
-                            <dd class="text-sm font-semibold text-[var(--text)]"><%= rate.price %></dd>
-                        </div>
-                    <% }) %>
-                </dl>
-            </article>
-        <% }) %>
+        <div class="mt-8 grid gap-6 lg:grid-cols-3">
+            <% page.consultingRates.forEach(function (tier) { %>
+                <article class="surface-card-strong p-6 sm:p-7">
+                    <p class="eyebrow"><%= tier.title %></p>
+                    <dl class="mt-6 space-y-4">
+                        <% tier.rates.forEach(function (rate) { %>
+                            <div class="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--border)] pt-4">
+                                <dt class="body-sm"><%= rate.label %></dt>
+                                <dd class="text-2xl font-semibold tracking-tight text-[var(--text)]"><%= rate.price %></dd>
+                            </div>
+                        <% }) %>
+                    </dl>
+                </article>
+            <% }) %>
+        </div>
     </div>
 </section>
 
@@ -102,9 +103,15 @@
     <%- include('../partials/section-header', {
         kicker: 'Buildouts',
         title: page.buildoutTitle,
-        body: 'Scoped systems for teams that need more than coaching or a one-off workflow session.',
+        body: 'Custom systems for teams that need more than coaching or a one-off workflow session.',
         centered: false,
     }) %>
+
+    <ul class="list-check mt-6 grid gap-4 text-sm leading-7 text-[var(--text-muted)] md:grid-cols-3">
+        <% page.buildoutIntroBullets.forEach(function (bullet) { %>
+            <li><%= bullet %></li>
+        <% }) %>
+    </ul>
 
     <div class="site-grid mt-6">
         <% page.buildoutTiers.forEach(function (tier) { %>
