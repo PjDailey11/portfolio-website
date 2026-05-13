@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const crypto = require('crypto');
+const fs = require('fs');
 const express = require('express');
 const path = require('path');
 const helmet = require('helmet');
@@ -11,6 +12,27 @@ const { shared, pageByKey } = require('./src/data/site');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+/**
+ * On Vercel, @vercel/node may place this file under api/ while includeFiles
+ * extracts views/public next to the function root — __dirname alone can miss views.
+ */
+function resolveAppRoot() {
+    const headMarker = path.join('views', 'partials', 'head.ejs');
+    const roots = [...new Set([
+        __dirname,
+        path.join(__dirname, '..'),
+        process.cwd(),
+    ])];
+    for (const root of roots) {
+        if (fs.existsSync(path.join(root, headMarker))) {
+            return root;
+        }
+    }
+    return __dirname;
+}
+
+const appRoot = resolveAppRoot();
 
 if (process.env.VERCEL) {
     app.set('trust proxy', 1);
@@ -42,7 +64,7 @@ function rateLimitClientKey(req) {
 }
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(appRoot, 'views'));
 
 app.use((req, res, next) => {
     res.locals.nonce = crypto.randomBytes(16).toString('base64');
@@ -143,12 +165,12 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 // Shorter cache for built CSS/JS so deploys are visible without a hard refresh.
-app.use('/assets', express.static(path.join(__dirname, 'public', 'assets'), {
+app.use('/assets', express.static(path.join(appRoot, 'public', 'assets'), {
     maxAge: '5m',
     etag: true,
 }));
 
-app.use(express.static(path.join(__dirname, 'public'), {
+app.use(express.static(path.join(appRoot, 'public'), {
     maxAge: '1d',
     etag: true,
 }));
