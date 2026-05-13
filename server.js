@@ -83,15 +83,21 @@ app.use((req, res, next) => {
     next();
 });
 
+const rateLimitShared = {
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: (req) => rateLimitClientKey(req),
+    // V7 validations are brittle behind serverless / varying proxy headers; we key manually above.
+    validate: false,
+};
+
 const generalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 150,
     message: {
         error: 'Too many requests from this IP, please try again later.',
     },
-    standardHeaders: true,
-    legacyHeaders: false,
-    keyGenerator: (req) => rateLimitClientKey(req),
+    ...rateLimitShared,
 });
 
 const contactLimiter = rateLimit({
@@ -100,12 +106,8 @@ const contactLimiter = rateLimit({
     message: {
         error: 'Too many messages sent. Please try again in an hour.',
     },
-    standardHeaders: true,
-    legacyHeaders: false,
-    keyGenerator: (req) => rateLimitClientKey(req),
+    ...rateLimitShared,
 });
-
-app.use(generalLimiter);
 
 function buildSitemapXml() {
     const base = (process.env.SITE_URL || 'https://portfolio-website-nu-navy-16.vercel.app').replace(/\/+$/, '');
@@ -150,6 +152,9 @@ app.use(express.static(path.join(__dirname, 'public'), {
     maxAge: '1d',
     etag: true,
 }));
+
+// Only rate-limit API traffic — applying the limiter globally broke HTML pages on Vercel.
+app.use('/api', generalLimiter);
 
 const contactValidation = [
     body('name')
@@ -238,9 +243,24 @@ app.use((err, req, res, next) => {
     if (res.headersSent) {
         return next(err);
     }
-    res.status(500).json({
+    const wantsJson = req.path.startsWith('/api')
+        || (req.headers.accept && String(req.headers.accept).includes('application/json'));
+    const payload = {
         error: 'An unexpected error occurred. Please try again later.',
-    });
+    };
+    if (process.env.EXPOSE_SERVER_ERRORS === '1') {
+        payload.detail = err && err.message ? String(err.message) : 'unknown';
+        if (err && err.code) {
+            payload.code = err.code;
+        }
+    }
+    if (wantsJson) {
+        return res.status(500).json(payload);
+    }
+    return res.status(500).type('html').send(
+        `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Error</title></head>`
+        + `<body><h1>Something went wrong</h1><p>${payload.error}</p></body></html>`,
+    );
 });
 
 if (require.main === module) {
