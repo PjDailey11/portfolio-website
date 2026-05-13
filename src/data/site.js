@@ -204,6 +204,45 @@ const pageContent = {
             'AI study systems',
             'Agentic workflows',
         ],
+        subjectImages: [
+            {
+                label: 'PSAT, SAT, and ACT Math',
+                src: '/assets/logos/psat-sat-act-logo.png',
+                alt: 'PSAT, SAT, and ACT exam logos',
+            },
+            {
+                label: 'Data Structures and Algorithms',
+                src: '/assets/logos/dsa-logo.png',
+                alt: 'Data structures and algorithms diagram icon',
+            },
+            {
+                label: 'Calculus',
+                src: '/assets/logos/calculus-logo.png',
+                alt: 'Calculus function graph icon',
+            },
+        ],
+        aiToolImages: [
+            {
+                label: 'Claude Code',
+                src: '/assets/logos/claude-code-logo.png',
+                alt: 'Claude Code logo',
+            },
+            {
+                label: 'Cursor',
+                src: '/assets/logos/cursor-logo.png',
+                alt: 'Cursor IDE logo',
+            },
+            {
+                label: 'OpenClaw',
+                src: '/assets/logos/openclaw-logo.png',
+                alt: 'OpenClaw logo',
+            },
+            {
+                label: 'Vercel',
+                src: '/assets/logos/vercel-logo.jpg',
+                alt: 'Vercel logo',
+            },
+        ],
         pricingIntro: 'Choose the suite that best matches the support you need, from math mastery and test prep to technical project coaching, mentorship, and student AI systems.',
         pricingSuites: [
             {
@@ -413,6 +452,23 @@ const pageContent = {
             'AI for tutoring businesses',
             'AI for productivity systems',
         ],
+        tools: [
+            {
+                label: 'Zapier',
+                src: '/assets/logos/zapier-logo.jpg',
+                alt: 'Zapier automation platform logo',
+            },
+            {
+                label: 'Make.com',
+                src: '/assets/logos/make-logo.png',
+                alt: 'Make.com automation platform logo',
+            },
+            {
+                label: 'n8n',
+                src: '/assets/logos/n8n-logo.png',
+                alt: 'n8n automation platform logo',
+            },
+        ],
         industries: ['Education', 'Small businesses', 'Creators', 'Startups', 'Students'],
         workflows: [
             {
@@ -499,6 +555,33 @@ const pageContent = {
         title: 'Social Media | PJ Dailey',
         description: 'Social media portfolio for AI education, productivity workflows, coding content, and tech tutorials.',
         platforms: ['TikTok', 'Instagram', 'YouTube'],
+        profileImages: [
+            {
+                label: 'X profile',
+                src: '/assets/profiles/x-profile.png',
+                alt: 'PJ Dailey X profile screenshot',
+            },
+            {
+                label: 'LinkedIn profile',
+                src: '/assets/profiles/linkedin-profile.png',
+                alt: 'PJ Dailey LinkedIn profile screenshot',
+            },
+            {
+                label: 'TikTok profile',
+                src: '/assets/profiles/tiktok-profile.png',
+                alt: 'PJ Dailey TikTok profile screenshot',
+            },
+            {
+                label: 'YouTube channel',
+                src: '/assets/profiles/youtube-profile.png',
+                alt: 'PJ Dailey YouTube channel screenshot',
+            },
+            {
+                label: 'Instagram profile',
+                src: '/assets/profiles/instagram-profile.png',
+                alt: 'PJ Dailey Instagram profile screenshot',
+            },
+        ],
         contentTypes: [
             {
                 title: 'AI education',
