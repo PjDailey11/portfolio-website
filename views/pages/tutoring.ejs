@@ -33,8 +33,6 @@
     </div>
 </section>
 
-<%- include('../partials/testimonials') %>
-
 <section class="container-shell mt-16">
     <div class="surface-card p-6 sm:p-8" id="booking-placeholder">
         <p class="eyebrow">BOOK A SESSION</p>
@@ -59,6 +57,16 @@
             <article class="surface-card p-6 sm:p-8">
                 <p class="eyebrow"><%= suite.title %></p>
                 <h3 class="mt-3 text-2xl font-semibold tracking-tight"><%= suite.subtitle %></h3>
+                <% if (suite.description) { %>
+                    <p class="body-sm mt-4"><%= suite.description %></p>
+                <% } %>
+                <% if (suite.bullets && suite.bullets.length) { %>
+                    <ul class="mt-5 space-y-2 text-sm leading-7 text-[var(--text-muted)]">
+                        <% suite.bullets.forEach(function (bullet) { %>
+                            <li><%= bullet %></li>
+                        <% }) %>
+                    </ul>
+                <% } %>
 
                 <div class="mt-6 space-y-6">
                     <% suite.sections.forEach(function (section) { %>

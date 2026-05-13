@@ -209,6 +209,12 @@ const pageContent = {
             {
                 title: 'Scholars Suite',
                 subtitle: 'High School & AP Math Mastery',
+                description: 'Math support for students who need clearer explanations, stronger fundamentals, and better problem-solving habits.',
+                bullets: [
+                    'Algebra, Geometry, Pre-Calculus, Calculus I/II, AP Calculus, and AP Statistics.',
+                    'Homework support, test review, and step-by-step practice that targets the exact concept gap.',
+                    'Problem-solving routines that help students show their work, catch mistakes, and build confidence.',
+                ],
                 sections: [
                     {
                         title: '1-on-1 Sessions',
@@ -231,6 +237,12 @@ const pageContent = {
             {
                 title: 'Performance Suite',
                 subtitle: 'SAT/ACT Test Prep',
+                description: 'SAT/ACT math prep focused on diagnosing weak areas, improving speed, and building a repeatable test-taking process.',
+                bullets: [
+                    'Timed practice with review that explains why answers are right or wrong.',
+                    'Concept review, calculator strategy, and pacing work for math sections.',
+                    'Mistake analysis and weekly study plans so practice turns into measurable progress.',
+                ],
                 sections: [
                     {
                         title: '1-on-1 Coaching',
@@ -263,6 +275,12 @@ const pageContent = {
             {
                 title: 'Engineering Suite',
                 subtitle: 'Computer Science, Coding, Algorithms, Projects',
+                description: 'Computer science tutoring for students learning programming, algorithms, data structures, debugging, and project work.',
+                bullets: [
+                    'Python, Java, C, web development, databases, data structures, and algorithms.',
+                    'Debugging support that teaches students how to reason through errors instead of guessing.',
+                    'Project planning, code review, and implementation guidance for coursework or personal builds.',
+                ],
                 sections: [
                     {
                         title: '1-on-1 Sessions',
@@ -293,6 +311,12 @@ const pageContent = {
             {
                 title: 'Executive Mentorship Suite',
                 subtitle: 'A 6-Week Elite Academic + Technical Accelerator',
+                description: 'A six-week elite academic and technical accelerator for students who need structured coaching, technical support, and a clear roadmap.',
+                bullets: [
+                    'Weekly coaching with academic planning, assignment support, and parent progress updates.',
+                    'Technical project coaching for coding, research, AI workflows, and portfolio-style work.',
+                    'Priority scheduling and a focused roadmap that keeps the student moving between sessions.',
+                ],
                 sections: [
                     {
                         title: 'Includes',
@@ -300,7 +324,6 @@ const pageContent = {
                         items: [
                             'Weekly 1-on-1 coaching (virtual or in-person)',
                             'Unlimited Q&A + assignment help',
-                            'AI-powered study system (custom-built)',
                             'Personalized academic + career roadmap',
                             'College prep + essay guidance',
                             'Project coaching (coding, research, AI workflows)',
@@ -323,17 +346,30 @@ const pageContent = {
             {
                 title: 'AI Scholars Suite',
                 subtitle: 'Student AI Tutoring — published rates',
+                description: 'Student-focused AI tutoring for learners who want to use modern AI tools responsibly for research, coding, studying, and workflow building.',
+                bullets: [
+                    'AI agents, workflows, research support, coding tools, study systems, and productivity habits.',
+                    'Hands-on setup and coaching so students understand how the tools work, not just what to click.',
+                    'Academic support that keeps responsible use, learning, and original thinking at the center.',
+                ],
                 sections: [
                     {
                         title: 'Student AI Tutoring',
-                        kind: 'comparison',
-                        columns: ['Virtual', 'In-Person'],
-                        rows: [
-                            { label: 'AI Agent Setup (Student Version)', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI Workflow Building (Student Version)', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI for Data Extrapolation & Analysis', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI Coding Tools & AI Builders', values: ['$200/hr', '$250/hr'] },
-                            { label: 'AI for Research, Writing, Math, and Academics', values: ['$200/hr', '$250/hr'] },
+                        kind: 'rates',
+                        items: [
+                            { label: 'Virtual', price: '$200/hr' },
+                            { label: 'In-Person', price: '$250/hr' },
+                        ],
+                    },
+                    {
+                        title: 'Topics Covered',
+                        kind: 'bullets',
+                        items: [
+                            'AI agent setup for students',
+                            'AI workflow building',
+                            'AI for data analysis and research',
+                            'AI coding tools and builders',
+                            'AI for writing, math, and academic support',
                         ],
                     },
                     {
@@ -354,13 +390,6 @@ const pageContent = {
                         ],
                         footer: { label: 'Price', price: '$1,000 flat (virtual or in-person)' },
                     },
-                    {
-                        title: 'Student AI Project Coaching',
-                        kind: 'rates',
-                        items: [
-                            { label: 'Virtual or In-Person', price: '$400/hr' },
-                        ],
-                    },
                 ],
             },
         ],
@@ -369,7 +398,6 @@ const pageContent = {
             { label: 'Parent Progress Report', price: '$50' },
             { label: 'Priority Scheduling', price: '$30/month' },
             { label: 'Custom Study Plan', price: '$75' },
-            { label: 'AI-Powered Study System', price: '$150' },
         ],
     },
     aiConsulting: {
