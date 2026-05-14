@@ -132,8 +132,11 @@ const pageContent = {
             kicker: 'TUTOR | AI CONSULTANT | BUILDER',
             title: 'Better results for students and simpler AI systems for small businesses.',
             description: 'High school and college students get structured math and computer science support that builds confidence, understanding, and stronger academic performance. Small business owners get practical AI systems that reduce repetitive work, save time, and make day-to-day operations easier to run.',
-            primaryCta: { label: 'Explore Tutoring', href: '/tutoring' },
-            secondaryCta: { label: 'Explore AI Systems', href: '/ai-consulting' },
+            actions: [
+                { label: 'Explore Tutoring', href: '/tutoring' },
+                { label: 'Explore AI Systems', href: '/ai-consulting' },
+                { label: 'Explore Social Media', href: '/social-media' },
+            ],
             stats: [
                 { label: 'Focus Areas', value: 'Math & CS tutoring + AI systems' },
                 { label: 'Availability', value: 'Remote and local' },
